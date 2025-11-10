@@ -182,13 +182,15 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     const expectation = testcase.TC5.expectation;
 
     // Prepare data before
-    forceRegisterNewAccount(
+    await test.step(`Prepare data accountId is ${data.accountId}`, async () => {
+      forceRegisterNewAccount(
       data.accountId,
       data.password,
       data.firstName,
       data.lastName,
       0
     );
+    });
 
     const helper = new RegistrationHelper(page);
 
@@ -228,7 +230,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     // Tear down this case
-    await User.deleteMany({ accountId: data.accountId });
+    await test.step(`Tear down the data accountId is ${data.accountId}`, async () => {
+      await User.deleteMany({ accountId: data.accountId });
+    });
   });
 
   test("TC6: Register with non-numeric password", async ({ page }) => {
