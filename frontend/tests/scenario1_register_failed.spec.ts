@@ -2,8 +2,8 @@ import { test } from "@playwright/test";
 import { RegistrationHelper } from "./helpers/registration.helper";
 import { testcase } from "./raw_test_data.json/scenario1_raw_data.json";
 import defineConfig from "../playwright.config";
-import { connectDB, disconnectDB, mongoUrl } from "./helpers/mongoose.helper";
-import { User } from "./helpers/models/user.model";
+import { connectDB, disconnectDB, mongoUrl } from "./helpers/database/mongoose.helper";
+import { User } from "./helpers/database/models/user.model";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   test.beforeEach(async ({ page }) => {
