@@ -1,6 +1,7 @@
 {
   "testcase": {
     "TC2": {
+      "name": "Register with non-numeric account number",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -28,6 +29,7 @@
       }
     },
     "TC3": {
+      "name": "Register with account number less than 10 digits",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -55,6 +57,7 @@
       }
     },
     "TC4": {
+      "name": "Register with account number more than 10 digits",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -82,6 +85,7 @@
       }
     },
     "TC5": {
+      "name": "Register with duplicate account number",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -109,6 +113,7 @@
       }
     },
     "TC6": {
+      "name": "Register with non-numeric password",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -136,6 +141,7 @@
       }
     },
     "TC7": {
+      "name": "Register with password less than 4 digits",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -163,6 +169,7 @@
       }
     },
     "TC8": {
+      "name": "Register with password more than 4 digits",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -190,6 +197,7 @@
       }
     },
     "TC9": {
+      "name": "Register with firstname causing total more than 30 chars",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -217,6 +225,7 @@
       }
     },
     "TC10": {
+      "name": "Register with lastname causing total more than 30 chars",
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
