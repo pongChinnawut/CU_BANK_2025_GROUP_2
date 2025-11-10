@@ -2,7 +2,7 @@ import { test } from "@playwright/test";
 import { RegistrationHelper } from "./helpers/registration.helper";
 import { testcase } from "./raw_test_data.json/scenario1_raw_data.json";
 import defineConfig from "../playwright.config";
-import { connectDB, disconnectDB } from "./helpers/mongoose.helper";
+import { connectDB, disconnectDB, mongoUrl } from "./helpers/mongoose.helper";
 import { User } from "./helpers/models/user.model";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
@@ -11,9 +11,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   });
 
   test.beforeAll(async () => {
-    await connectDB(
-      "mongodb+srv://chinnawutkpong_db_user:HYK71Rx1ySuphpuS@cubankclustertest.s9bsp9r.mongodb.net/?appName=CUBankClusterTest"
-    );
+    await connectDB(mongoUrl);
   });
 
   test.afterAll(async () => {
@@ -166,16 +164,15 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     lastName: string,
     balance: number
   ) {
-
     const foundAccountId = await User.findOne({ accountId: accountId });
     if (foundAccountId == null) {
       await User.create({
-      firstName: firstName,
-      password: password,
-      lastName: lastName,
-      accountId: accountId,
-      balance: balance
-    });
+        firstName: firstName,
+        password: password,
+        lastName: lastName,
+        accountId: accountId,
+        balance: balance,
+      });
     }
   }
 
