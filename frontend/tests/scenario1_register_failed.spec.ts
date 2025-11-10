@@ -33,13 +33,23 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(
         expectation.errorMsg.accountIdShouldContainNumbersOnly
       );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
     });
   });
 
@@ -70,13 +80,23 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(
         expectation.errorMsg.accountIdMustBeExactly10DigitsLong
       );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
     });
   });
 
@@ -107,13 +127,23 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(
         expectation.errorMsg.accountIdMustBeExactly10DigitsLong
       );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
     });
   });
 
@@ -142,11 +172,21 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(expectation.errorMsg.accountIdIsExist);
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
     });
   });
 
@@ -175,13 +215,23 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(
         expectation.errorMsg.passwordShouldContainNumnersOnly
       );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
     });
   });
 
@@ -210,17 +260,27 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(
         expectation.errorMsg.passwordMustBeExactly4DigitsLong
       );
     });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
+    });
   });
 
-    test("TC8: Register with password more than 4 digits", async ({ page }) => {
+  test("TC8: Register with password more than 4 digits", async ({ page }) => {
     const data = testcase.TC8.data;
     const step = testcase.TC8.step;
     const expectation = testcase.TC8.expectation;
@@ -245,13 +305,117 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     await test.step(step.step6_click_register_button_to_submit, async () => {
-      await helper.submit();
+      await helper.submitRegister();
     });
 
+    // Expect
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(
         expectation.errorMsg.passwordMustBeExactly4DigitsLong
       );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
+    });
+  });
+
+  test("TC9: Register with firstname causing total more than 30 chars", async ({
+    page,
+  }) => {
+    const data = testcase.TC9.data;
+    const step = testcase.TC9.step;
+    const expectation = testcase.TC9.expectation;
+
+    const helper = new RegistrationHelper(page);
+
+    await test.step(step.step1_click_register_button_on_top_bar, async () => {
+      await helper.openRegister();
+    });
+
+    await test.step(`${step.step2_fill_in_account_id} is ${data.accountId}`, async () => {
+      await helper.fillRegistrationAccountId(data);
+    });
+    await test.step(`${step.step3_fill_in_password} is ${data.password}`, async () => {
+      await helper.fillRegistrationPassword(data);
+    });
+    await test.step(`${step.step4_fill_in_first_name} is ${data.firstName}`, async () => {
+      await helper.fillRegistrationFirstName(data);
+    });
+    await test.step(`${step.step5_fill_in_last_name} is ${data.lastName}`, async () => {
+      await helper.fillRegistrationLastName(data);
+    });
+
+    await test.step(step.step6_click_register_button_to_submit, async () => {
+      await helper.submitRegister();
+    });
+
+    // Expect
+    await test.step(expectation.step.expect1, async () => {
+      await helper.expectErrorMessage(
+        expectation.errorMsg.firstAndLastNameMustNotExceed30Char
+      );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
+    });
+  });
+
+  test("TC10: Register with lastname causing total more than 30 chars", async ({
+    page,
+  }) => {
+    const data = testcase.TC10.data;
+    const step = testcase.TC10.step;
+    const expectation = testcase.TC10.expectation;
+
+    const helper = new RegistrationHelper(page);
+
+    await test.step(step.step1_click_register_button_on_top_bar, async () => {
+      await helper.openRegister();
+    });
+
+    await test.step(`${step.step2_fill_in_account_id} is ${data.accountId}`, async () => {
+      await helper.fillRegistrationAccountId(data);
+    });
+    await test.step(`${step.step3_fill_in_password} is ${data.password}`, async () => {
+      await helper.fillRegistrationPassword(data);
+    });
+    await test.step(`${step.step4_fill_in_first_name} is ${data.firstName}`, async () => {
+      await helper.fillRegistrationFirstName(data);
+    });
+    await test.step(`${step.step5_fill_in_last_name} is ${data.lastName}`, async () => {
+      await helper.fillRegistrationLastName(data);
+    });
+
+    await test.step(step.step6_click_register_button_to_submit, async () => {
+      await helper.submitRegister();
+    });
+
+    //Expect
+    await test.step(expectation.step.expect1, async () => {
+      await helper.expectErrorMessage(
+        expectation.errorMsg.firstAndLastNameMustNotExceed30Char
+      );
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplaySubmitRegister();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayLoginNavLisk();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayRegisterNavLisk();
     });
   });
 

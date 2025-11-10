@@ -17,7 +17,10 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message account ID should contain numbers only"
+          "expect1": "Display error message account ID should contain numbers only",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "accountIdShouldContainNumbersOnly": "Your account ID should contain numbers only."
@@ -41,14 +44,17 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message account ID must be exactly 10 digits long"
+          "expect1": "Display error message account ID must be exactly 10 digits long",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "accountIdMustBeExactly10DigitsLong": "Your account ID must be exactly 10 digits long."
         }
       }
     },
-      "TC4": {
+    "TC4": {
       "step": {
         "step1_click_register_button_on_top_bar": "Click register button on top bar",
         "step2_fill_in_account_id": "Fill in account ID",
@@ -65,7 +71,10 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message account ID must be exactly 10 digits long"
+          "expect1": "Display error message account ID must be exactly 10 digits long",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "accountIdMustBeExactly10DigitsLong": "Your account ID must be exactly 10 digits long."
@@ -89,7 +98,10 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message account ID is already in use. Please use a different account ID"
+          "expect1": "Display error message account ID is already in use. Please use a different account ID",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "accountIdIsExist": "This account ID is already in use. Please use a different account ID."
@@ -113,7 +125,10 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message password should contain numbers only"
+          "expect1": "Display error message password should contain numbers only",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "passwordShouldContainNumnersOnly": "Your password should contain numbers only."
@@ -137,7 +152,10 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message password must be exactly 4 digits long"
+          "expect1": "Display error message password must be exactly 4 digits long",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "passwordMustBeExactly4DigitsLong": "Your password must be exactly 4 digits long."
@@ -161,7 +179,10 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message password must be exactly 4 digits long"
+          "expect1": "Display error message password must be exactly 4 digits long",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
           "passwordMustBeExactly4DigitsLong": "Your password must be exactly 4 digits long."
@@ -185,10 +206,40 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message password must be exactly 4 digits long"
+          "expect1": "Display error message first and last name must not exceed 30 characters",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
         },
         "errorMsg": {
-          "passwordMustBeExactly4DigitsLong": ""
+          "firstAndLastNameMustNotExceed30Char": "The combined length of your first and last name must not exceed 30 characters."
+        }
+      }
+    },
+    "TC10": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "2122242362",
+        "password": "1234",
+        "firstName": "John",
+        "lastName": "Smithsonsmithsonsmithsonsmith"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message first and last name must not exceed 30 characters",
+          "expect2": "Display register button on the register page",
+          "expect3": "Display login on nav link on the register page",
+          "expect4": "Display register on nav link on the register page"
+        },
+        "errorMsg": {
+          "firstAndLastNameMustNotExceed30Char": "The combined length of your first and last name must not exceed 30 characters."
         }
       }
     }
