@@ -2,10 +2,22 @@ import { test } from "@playwright/test";
 import { RegistrationHelper } from "./helpers/registration.helper";
 import { testcase } from "./raw_test_data.json/scenario1_raw_data.json";
 import defineConfig from "../playwright.config";
+import { connectDB, disconnectDB } from "./helpers/mongoose.helper";
+import { User } from "./helpers/models/user.model";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(`${defineConfig.use?.baseURL}`);
+  });
+
+  test.beforeAll(async () => {
+    await connectDB(
+      "mongodb+srv://chinnawutkpong_db_user:HYK71Rx1ySuphpuS@cubankclustertest.s9bsp9r.mongodb.net/?appName=CUBankClusterTest"
+    );
+  });
+
+  test.afterAll(async () => {
+    await disconnectDB();
   });
 
   test("TC2: Register with non-numeric account number", async ({ page }) => {
@@ -147,10 +159,39 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
   });
 
+  async function forceRegisterNewAccount(
+    accountId: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    balance: number
+  ) {
+
+    const foundAccountId = await User.findOne({ accountId: accountId });
+    if (foundAccountId == null) {
+      await User.create({
+      firstName: firstName,
+      password: password,
+      lastName: lastName,
+      accountId: accountId,
+      balance: balance
+    });
+    }
+  }
+
   test("TC5: Register with duplicate account number", async ({ page }) => {
     const data = testcase.TC5.data;
     const step = testcase.TC5.step;
     const expectation = testcase.TC5.expectation;
+
+    // Prepare data before
+    forceRegisterNewAccount(
+      data.accountId,
+      data.password,
+      data.firstName,
+      data.lastName,
+      0
+    );
 
     const helper = new RegistrationHelper(page);
 
