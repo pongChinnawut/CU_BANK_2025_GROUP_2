@@ -2,8 +2,13 @@ import { test } from "@playwright/test";
 import { RegistrationHelper } from "./helpers/registration.helper";
 import { testcase } from "./raw_test_data.json/scenario1_raw_data.json";
 import defineConfig from "../playwright.config";
-import { connectDB, disconnectDB, mongoUrl } from "./helpers/database/mongoose.helper";
-import { User } from "./helpers/database/models/user.model";
+import {
+  connectDatabase,
+  disconnectDatabase,
+  insertNewUserAccountIfNotExist,
+  deleteUserByAccountId,
+  clearUserTransactionsByAccountId
+} from "./helpers/database/action.helper";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   test.beforeEach(async ({ page }) => {
@@ -11,14 +16,15 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   });
 
   test.beforeAll(async () => {
-    await connectDB(mongoUrl);
+    connectDatabase();
   });
 
   test.afterAll(async () => {
-    await disconnectDB();
+    disconnectDatabase();
   });
 
   test("TC2: Register with non-numeric account number", async ({ page }) => {
+    await clearUserTransactionsByAccountId("1111111111")
     const data = testcase.TC2.data;
     const step = testcase.TC2.step;
     const expectation = testcase.TC2.expectation;
@@ -157,25 +163,6 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
   });
 
-  async function forceRegisterNewAccount(
-    accountId: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    balance: number
-  ) {
-    const foundAccountId = await User.findOne({ accountId: accountId });
-    if (foundAccountId == null) {
-      await User.create({
-        firstName: firstName,
-        password: password,
-        lastName: lastName,
-        accountId: accountId,
-        balance: balance,
-      });
-    }
-  }
-
   test("TC5: Register with duplicate account number", async ({ page }) => {
     const data = testcase.TC5.data;
     const step = testcase.TC5.step;
@@ -183,13 +170,13 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Prepare data before
     await test.step(`Prepare data accountId is ${data.accountId}`, async () => {
-      forceRegisterNewAccount(
-      data.accountId,
-      data.password,
-      data.firstName,
-      data.lastName,
-      0
-    );
+      insertNewUserAccountIfNotExist(
+        data.accountId,
+        data.password,
+        data.firstName,
+        data.lastName,
+        0
+      );
     });
 
     const helper = new RegistrationHelper(page);
@@ -231,7 +218,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Tear down this case
     await test.step(`Tear down the data accountId is ${data.accountId}`, async () => {
-      await User.deleteMany({ accountId: data.accountId });
+      await deleteUserByAccountId(data.accountId);
     });
   });
 
