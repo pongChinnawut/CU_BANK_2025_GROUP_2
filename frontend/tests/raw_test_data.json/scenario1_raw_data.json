@@ -1,0 +1,196 @@
+{
+  "testcase": {
+    "TC2": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "ABC1234567",
+        "password": "1234",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID should contain numbers only"
+        },
+        "errorMsg": {
+          "accountIdShouldContainNumbersOnly": "Your account ID should contain numbers only."
+        }
+      }
+    },
+    "TC3": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "123456789",
+        "password": "1234",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long"
+        },
+        "errorMsg": {
+          "accountIdMustBeExactly10DigitsLong": "Your account ID must be exactly 10 digits long."
+        }
+      }
+    },
+      "TC4": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "12345678901",
+        "password": "1234",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long"
+        },
+        "errorMsg": {
+          "accountIdMustBeExactly10DigitsLong": "Your account ID must be exactly 10 digits long."
+        }
+      }
+    },
+    "TC5": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "9999999999",
+        "password": "1234",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID is already in use. Please use a different account ID"
+        },
+        "errorMsg": {
+          "accountIdIsExist": "This account ID is already in use. Please use a different account ID."
+        }
+      }
+    },
+    "TC6": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "2122242362",
+        "password": "ABCD",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message password should contain numbers only"
+        },
+        "errorMsg": {
+          "passwordShouldContainNumnersOnly": "Your password should contain numbers only."
+        }
+      }
+    },
+    "TC7": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "2122242362",
+        "password": "123",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message password must be exactly 4 digits long"
+        },
+        "errorMsg": {
+          "passwordMustBeExactly4DigitsLong": "Your password must be exactly 4 digits long."
+        }
+      }
+    },
+    "TC8": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "2122242362",
+        "password": "12345",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message password must be exactly 4 digits long"
+        },
+        "errorMsg": {
+          "passwordMustBeExactly4DigitsLong": "Your password must be exactly 4 digits long."
+        }
+      }
+    },
+    "TC9": {
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "2122242362",
+        "password": "1234",
+        "firstName": "Johnathanthanthanthans",
+        "lastName": "Smithson"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message password must be exactly 4 digits long"
+        },
+        "errorMsg": {
+          "passwordMustBeExactly4DigitsLong": ""
+        }
+      }
+    }
+  }
+}
