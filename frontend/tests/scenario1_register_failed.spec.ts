@@ -226,6 +226,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
     });
+
+    // Tear down this case
+    await User.deleteMany({ accountId: data.accountId });
   });
 
   test("TC6: Register with non-numeric password", async ({ page }) => {
