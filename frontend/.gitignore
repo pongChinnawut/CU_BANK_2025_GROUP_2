@@ -8,6 +8,15 @@
 # testing
 /coverage
 
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/tests/storage/*.json
+
 # production
 /build
 
