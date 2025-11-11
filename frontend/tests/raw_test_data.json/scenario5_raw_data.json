@@ -1,0 +1,137 @@
+{
+  "testcase": {
+    "TC11": {
+      "name": "Login with valid credentials",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_password": "Fill in password",
+        "step3_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "password": "1234"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the account page",
+          "expect2": "Display account on nav link on the account page"
+        }
+      }
+    },
+    "TC30": {
+      "name": "Transfer with non-numeric target account",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "ABC1234567",
+        "amount": "1234"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID should contain numbers only.",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "account_id_should_contain_numbers_only": "Your account ID should contain numbers only."
+        }
+      }
+    },
+    "TC31": {
+      "name": "Transfer with target account less than 10 digits",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "246810121",
+        "amount": "300"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "account_id_should_be_10_digit": "Your account ID must be exactly 10 digits long."
+        }
+      }
+    },
+    "TC32": {
+      "name": "Transfer with target account less than 10 digits",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "24681012156",
+        "amount": "300"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "account_id_should_be_10_digit": "Your account ID must be exactly 10 digits long."
+        }
+      }
+    },
+    "TC33": {
+      "name": "Transfer with target account less than 10 digits",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "5555555555",
+        "amount": "300"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message We couldn't find the recipient's account. Please double-check the account ID.",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "account_id_not_exist": "We couldn't find the recipient's account. Please double-check the account ID."
+        }
+      }
+    },
+    "TC34": {
+      "name": "Transfer with target account not found",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "amount": "300"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message You cannot transfer to your own account",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "account_owner": "You cannot transfer to your own account."
+        }
+      }
+    }
+  }
+}
