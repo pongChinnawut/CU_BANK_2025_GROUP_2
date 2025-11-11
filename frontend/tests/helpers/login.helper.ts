@@ -30,7 +30,7 @@ export class LoginHelper {
   }
 
   async expectErrorMessage(expected: string) {
-    const errorMsg = this.page.locator(locators.errorMsg);
+    const errorMsg = this.page.locator(locators.errorMsgLogin);
     await expect(errorMsg).toHaveText(expected);
   }
 }

@@ -44,7 +44,7 @@ export class RegistrationHelper {
   }
 
   async expectErrorMessage(expected: string) {
-    const errorMsg = this.page.locator(locators.errorMsg);
+    const errorMsg = this.page.locator(locators.errorMsgRegister);
     await expect(errorMsg).toHaveText(expected);
   }
 
