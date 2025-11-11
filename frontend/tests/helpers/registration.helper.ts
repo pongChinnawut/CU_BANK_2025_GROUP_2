@@ -47,4 +47,9 @@ export class RegistrationHelper {
     const errorMsg = this.page.locator(locators.errorMsg);
     await expect(errorMsg).toHaveText(expected);
   }
+
+  async expectDisplayTextLogin() {
+    const loginText = this.page.locator(locators.textLoginInMiddlePage);
+    await expect(loginText).toBeVisible();
+  }
 }

@@ -4,6 +4,10 @@ import { test, expect } from "../fixtures/auth-fixtures";
 export class LoginHelper {
   constructor(private page: Page) {}
 
+  async openLogin() {
+    await this.page.click(locators.loginNavLink);
+  }
+
   async fillAccountId(data: any) {
     await this.page.fill(locators.accountId, data.accountId);
   }
@@ -23,5 +27,10 @@ export class LoginHelper {
   async expectDisplayAccountPage() {
     const registerNavLink = this.page.locator(locators.AccountNavLink);
     await expect(registerNavLink).toBeVisible();
+  }
+
+  async expectErrorMessage(expected: string) {
+    const errorMsg = this.page.locator(locators.errorMsg);
+    await expect(errorMsg).toHaveText(expected);
   }
 }

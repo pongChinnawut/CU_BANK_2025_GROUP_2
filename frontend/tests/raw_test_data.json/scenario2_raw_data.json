@@ -1,0 +1,194 @@
+{
+  "testcase": {
+    "TC1": {
+      "name": "Register with all valid inputs",
+      "step": {
+        "step1_click_register_button_on_top_bar": "Click register button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_fill_in_first_name": "Fill in firstName",
+        "step5_fill_in_last_name": "Fill in last_name",
+        "step6_click_register_button_to_submit": "Click register button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "password": "1234",
+        "firstName": "Joe",
+        "lastName": "Doe"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display login page"
+        }
+      }
+    },
+    "TC12": {
+      "name": "Login with non-numeric account number",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "ABC1234567",
+        "password": "1234"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID should contain numbers only"
+        },
+        "errorMsg": {
+          "accountIdShouldContainNumbersOnly": "Your account ID should contain numbers only."
+        }
+      }
+    },
+    "TC13": {
+      "name": "Login with account number less than 10 digits",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "123456789",
+        "password": "1234"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long"
+        },
+        "errorMsg": {
+          "accountIdMustBeExactly10Digits": "Your account ID must be exactly 10 digits long."
+        }
+      }
+    },
+    "TC14": {
+      "name": "Login with account number more than 10 digits",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "12345678901",
+        "password": "1234"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long"
+        },
+        "errorMsg": {
+          "accountIdMustBeExactly10Digits": "Your account ID must be exactly 10 digits long."
+        }
+      }
+    },
+    "TC15": {
+      "name": "Login with non-existent account",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "9876543210",
+        "password": "1234"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message User not found. Please check your account ID"
+        },
+        "errorMsg": {
+          "userAccountNotFound": "User not found. Please check your account ID."
+        }
+      }
+    },
+    "TC16": {
+      "name": "Login with non-numeric password",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "password": "ABCD"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID must be exactly 10 digits long"
+        },
+        "errorMsg": {
+          "passwordShouldContainNumbersOnly": "Your password should contain numbers only."
+        }
+      }
+    },
+    "TC17": {
+      "name": "Login with password less than 4 digits",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "password": "123"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message password must be exactly 4 digits long"
+        },
+        "errorMsg": {
+          "passwordMustBeExactly4Digits": "Your password must be exactly 4 digits long."
+        }
+      }
+    },
+    "TC18": {
+      "name": "Login with password more than 4 digits",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "password": "12345"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message password must be exactly 4 digits long"
+        },
+        "errorMsg": {
+          "passwordMustBeExactly4Digits": "Your password must be exactly 4 digits long."
+        }
+      }
+    },
+    "TC19": {
+      "name": "Login with wrong password",
+      "step": {
+        "step1_click_login_button_on_top_bar": "Click login button on top bar",
+        "step2_fill_in_account_id": "Fill in account ID",
+        "step3_fill_in_password": "Fill in password",
+        "step4_click_login_button_to_submit": "Click login button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "password": "5678"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Incorrect password. Please try again"
+        },
+        "errorMsg": {
+          "incorrectPassword": "Incorrect password. Please try again."
+        }
+      }
+    }
+  }
+}
