@@ -2,13 +2,7 @@ import { test } from "@playwright/test";
 import { RegistrationHelper } from "./helpers/registration.helper";
 import { testcase } from "./raw_test_data.json/scenario2_raw_data.json";
 import defineConfig from "../playwright.config";
-import {
-  connectDatabase,
-  disconnectDatabase,
-  insertNewUserAccountIfNotExist,
-  deleteUserByAccountId,
-  clearUserTransactionsByAccountId,
-} from "./helpers/database/action.helper";
+import { connectDatabase, disconnectDatabase } from "./helpers/database/action.helper";
 import { LoginHelper } from "./helpers/login.helper";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
