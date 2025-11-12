@@ -15,10 +15,103 @@
         "step": {
           "expect1": "Display the balance remains {{balance}} baht",
           "expect2": "Display no new transaction in history",
-          "expect3": "Display account on nav link on the account page"
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a please select one of these options."
         },
         "errorMsg": {
           "plase_select_options": "Please select one of these options."
+        }
+      }
+    },
+    "TC43": {
+      "name": "Pay water bill with non-numeric amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "Water Charge",
+        "amount": "ABC"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a tooltip enter a number"
+        },
+        "errorMsg": {
+          "enter_number": "Enter a number"
+        }
+      }
+    },
+    "TC44": {
+      "name": "Pay water bill with decimal amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "Water Charge",
+        "amount": "200.50"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a tooltip enter valid valuer"
+        },
+        "errorMsg": {
+          "enter_number": "Please enter a valid value. The two nearest valid values are 200 and 201."
+        }
+      }
+    },
+    "TC45": {
+      "name": "Pay water bill with negative or 0 amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "Water Charge",
+        "amount": "-100"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account the amount must be greater than 0. Please enter a positive number."
+        },
+        "errorMsg": {
+          "enter_number": "The amount must be greater than 0. Please enter a positive number."
+        }
+      }
+    },
+    "TC46": {
+      "name": "Pay water bill with insufficient balance",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "Water Charge",
+        "amount": "2000"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display your balance is not enough to complete the bill payment."
+        },
+        "errorMsg": {
+          "not_enough": "Your balance is not enough to complete the bill payment."
         }
       }
     }

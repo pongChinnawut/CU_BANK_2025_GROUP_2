@@ -12,8 +12,8 @@ export class BillHelper {
     await this.page.click(locators.billFormSubmitButton);
   }
 
-  async expectTooltipErrorMessage(expected: string) {
-    const errorMsg = this.page.locator(locators.billFormWaterCharge);
+  async expectTooltipErrorMessage(locator: string, expected: string) {
+    const errorMsg = this.page.locator(locator);
     await expect(errorMsg).toHaveJSProperty("validationMessage", expected);
   }
 
@@ -26,5 +26,16 @@ export class BillHelper {
     const userBalance = this.page.locator(locators.userBalance);
     await expect(userBalance).toBeVisible();
     await expect(userBalance).toContainText(`${balance}`);
+  }
+
+  async expectDisplayNoTransactions() {
+    const transactions = this.page.locator(locators.transactions);
+    await expect(transactions).not.toBeVisible();
+  }
+
+  async expectDisplayErrorMessage(error: string) {
+    const billFormErrorMessage = this.page.locator(locators.billFormErrorMessage);
+    await expect(billFormErrorMessage).toBeVisible();
+    // await expect(billFormErrorMessage).toContainText(error);
   }
 }

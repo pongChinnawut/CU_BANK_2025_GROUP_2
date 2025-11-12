@@ -37,6 +37,11 @@ const billForm = {
   billFormElectricCharge: '//*[@id="root"]/div/div/div/div[6]/div[2]/form/div[1]/input[2]',
   billFormPhoneCharge: '//*[@id="root"]/div/div/div/div[6]/div[2]/form/div[1]/input[3]',
   billFormSubmitButton: '//*[@id="root"]/div/div/div/div[6]/div[2]/form/button',
+  billFormErrorMessage: '//*[@id="root"]/div/div/div/div[6]/div[2]/form/div[3]/label',
+};
+
+const transactionsHistory = {
+  transactions: '//*[@id="root"]/div/div/div/div[7]/div',
 };
 
 export const locators = {
@@ -46,4 +51,5 @@ export const locators = {
   ...loginForm,
   ...accountForm,
   ...billForm,
+  ...transactionsHistory,
 };
