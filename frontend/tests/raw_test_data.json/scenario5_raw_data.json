@@ -8,8 +8,10 @@
         "step3_click_login_button_to_submit": "Click login button to submit"
       },
       "data": {
-        "accountId": "1234567890",
-        "password": "1234"
+        "accountId": "9999999998",
+        "password": "1234",
+        "firstName": "commonName",
+        "lastName": "test"
       },
       "expectation": {
         "step": {

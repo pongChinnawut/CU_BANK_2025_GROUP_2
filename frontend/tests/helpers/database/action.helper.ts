@@ -10,7 +10,10 @@ export async function disconnectDatabase() {
 }
 
 export async function clearUserTransactionsByAccountId(accountId: string) {
-  return await User.updateOne({ accountId }, { $set: { transactions: [] } });
+  await User.updateOne(
+  { accountId },
+  { $unset: { transactions: "" } }
+);
 }
 
 export async function findUserByAccountId(accountId: string) {

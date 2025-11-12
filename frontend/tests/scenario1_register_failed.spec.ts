@@ -24,7 +24,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   });
 
   test("TC2: Register with non-numeric account number", async ({ page }) => {
-    await clearUserTransactionsByAccountId("1111111111")
+    await clearUserTransactionsByAccountId("1234567890")
     const data = testcase.TC2.data;
     const step = testcase.TC2.step;
     const expectation = testcase.TC2.expectation;
