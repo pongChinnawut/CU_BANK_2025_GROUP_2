@@ -22,7 +22,7 @@ export class TransferHelper {
   }
 
   async expectDisplayAccountNavLink() {
-    const accountNavLink = this.page.locator(locators.AccountNavLink);
+    const accountNavLink = this.page.locator(locators.accountNavLink);
     await expect(accountNavLink).toBeVisible();
   }
 }

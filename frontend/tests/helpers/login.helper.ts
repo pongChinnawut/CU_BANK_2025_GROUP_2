@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { locators } from "./locator";
-import { test, expect } from "../fixtures/auth-fixtures";
+import { expect } from "../fixtures/auth-fixtures";
 export class LoginHelper {
   constructor(private page: Page) {}
 
@@ -25,7 +25,7 @@ export class LoginHelper {
   }
 
   async expectDisplayAccountPage() {
-    const registerNavLink = this.page.locator(locators.AccountNavLink);
+    const registerNavLink = this.page.locator(locators.accountNavLink);
     await expect(registerNavLink).toBeVisible();
   }
 

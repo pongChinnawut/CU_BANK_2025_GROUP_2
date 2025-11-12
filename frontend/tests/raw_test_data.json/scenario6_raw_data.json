@@ -1,0 +1,26 @@
+{
+  "testcase": {
+    "TC42": {
+      "name": "Pay bill with no radio button selection",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "Water Charge",
+        "amount": "500"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "plase_select_options": "Please select one of these options."
+        }
+      }
+    }
+  }
+}
