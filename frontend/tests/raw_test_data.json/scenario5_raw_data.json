@@ -1,25 +1,5 @@
 {
   "testcase": {
-    "TC11": {
-      "name": "Login with valid credentials",
-      "step": {
-        "step1_fill_in_account_id": "Fill in account ID",
-        "step2_fill_in_password": "Fill in password",
-        "step3_click_login_button_to_submit": "Click login button to submit"
-      },
-      "data": {
-        "accountId": "1234567890",
-        "password": "1234",
-        "firstName": "commonName",
-        "lastName": "test"
-      },
-      "expectation": {
-        "step": {
-          "expect1": "Display the account page",
-          "expect2": "Display account on nav link on the account page"
-        }
-      }
-    },
     "TC30": {
       "name": "Transfer with non-numeric target account",
       "step": {

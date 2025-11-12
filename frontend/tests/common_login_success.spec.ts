@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 import { LoginHelper } from "./helpers/login.helper";
 import defineConfig from "../playwright.config";
-import { testcase } from "./raw_test_data.json/scenario5_raw_data.json";
+import { testcase } from "./raw_test_data.json/common_raw_data.json";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   test.beforeEach(async ({ page }) => {
