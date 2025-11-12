@@ -4,7 +4,7 @@ import defineConfig from "../playwright.config";
 import { test } from "./fixtures/auth-fixtures";
 import { BillHelper } from "./helpers/bill.helper";
 import { AuthHelper } from "./helpers/auth.helper";
-import { getText } from "./helpers/utils/text";
+import { getText } from "./utils/text";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`, () => {
   test("TC11: Login with all valid inputs", async ({ page }) => {
