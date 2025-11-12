@@ -8,8 +8,8 @@ const accountForm = {
 const loginForm = {
   loginButton: '//*[@id="root"]/div/div/div/form/button',
   textLoginInMiddlePage: '//*[@id="root"]/div/div/div/h2',
-  errorMsgLogin: '//*[@id="root"]/div/div/div/form/label[2]/div/label'
-}
+  errorMsgLogin: '//*[@id="root"]/div/div/div/form/label[2]/div/label',
+};
 
 const registerForm = {
   loginNavLink: '//*[@id="root"]/div/nav/div/a[1]',
@@ -22,7 +22,7 @@ const registerForm = {
   registerButton: '//*[@id="root"]/div/div/div/form/button',
   loginButton: '//*[@id="root"]/div/div/div/form/button',
   errorMsgRegister: '//*[@id="root"]/div/div/div/form/div/label',
-}
+};
 
 export const locators = {
   ...registerForm,

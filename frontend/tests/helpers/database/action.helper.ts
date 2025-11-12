@@ -10,10 +10,7 @@ export async function disconnectDatabase() {
 }
 
 export async function clearUserTransactionsByAccountId(accountId: string) {
-  await User.updateOne(
-  { accountId },
-  { $unset: { transactions: "" } }
-);
+  await User.updateOne({ accountId }, { $unset: { transactions: "" } });
 }
 
 export async function findUserByAccountId(accountId: string) {
@@ -25,6 +22,7 @@ export async function insertNewUserAccountIfNotExist(
   password: string,
   firstName: string,
   lastName: string,
+  name: string,
   balance: number
 ) {
   const foundAccountId = await findUserByAccountId(accountId);
@@ -34,6 +32,7 @@ export async function insertNewUserAccountIfNotExist(
       password: password,
       lastName: lastName,
       accountId: accountId,
+      name: name,
       balance: balance,
     });
   }

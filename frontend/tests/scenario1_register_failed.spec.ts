@@ -7,7 +7,7 @@ import {
   disconnectDatabase,
   insertNewUserAccountIfNotExist,
   deleteUserByAccountId,
-  clearUserTransactionsByAccountId
+  clearUserTransactionsByAccountId,
 } from "./helpers/database/action.helper";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
@@ -24,7 +24,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   });
 
   test("TC2: Register with non-numeric account number", async ({ page }) => {
-    await clearUserTransactionsByAccountId("1234567890")
+    await clearUserTransactionsByAccountId("1234567890");
     const data = testcase.TC2.data;
     const step = testcase.TC2.step;
     const expectation = testcase.TC2.expectation;
@@ -54,9 +54,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.accountIdShouldContainNumbersOnly
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.accountIdShouldContainNumbersOnly);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -69,9 +67,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
   });
 
-  test("TC3: Register with account number less than 10 digits", async ({
-    page,
-  }) => {
+  test("TC3: Register with account number less than 10 digits", async ({ page }) => {
     const data = testcase.TC3.data;
     const step = testcase.TC3.step;
     const expectation = testcase.TC3.expectation;
@@ -101,9 +97,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.accountIdMustBeExactly10DigitsLong
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.accountIdMustBeExactly10DigitsLong);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -116,9 +110,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
   });
 
-  test("TC4: Register with account number more than 10 digits", async ({
-    page,
-  }) => {
+  test("TC4: Register with account number more than 10 digits", async ({ page }) => {
     const data = testcase.TC4.data;
     const step = testcase.TC4.step;
     const expectation = testcase.TC4.expectation;
@@ -148,9 +140,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.accountIdMustBeExactly10DigitsLong
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.accountIdMustBeExactly10DigitsLong);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -175,6 +165,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
         data.password,
         data.firstName,
         data.lastName,
+        `${data.firstName} ${data.lastName}`,
         0
       );
     });
@@ -252,9 +243,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.passwordShouldContainNumnersOnly
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.passwordShouldContainNumnersOnly);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -297,9 +286,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.passwordMustBeExactly4DigitsLong
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.passwordMustBeExactly4DigitsLong);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -342,9 +329,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.passwordMustBeExactly4DigitsLong
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.passwordMustBeExactly4DigitsLong);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -357,9 +342,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
   });
 
-  test("TC9: Register with firstname causing total more than 30 chars", async ({
-    page,
-  }) => {
+  test("TC9: Register with firstname causing total more than 30 chars", async ({ page }) => {
     const data = testcase.TC9.data;
     const step = testcase.TC9.step;
     const expectation = testcase.TC9.expectation;
@@ -389,9 +372,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.firstAndLastNameMustNotExceed30Char
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.firstAndLastNameMustNotExceed30Char);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
@@ -404,9 +385,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
   });
 
-  test("TC10: Register with lastname causing total more than 30 chars", async ({
-    page,
-  }) => {
+  test("TC10: Register with lastname causing total more than 30 chars", async ({ page }) => {
     const data = testcase.TC10.data;
     const step = testcase.TC10.step;
     const expectation = testcase.TC10.expectation;
@@ -436,9 +415,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     //Expect
     await test.step(expectation.step.expect1, async () => {
-      await helper.expectErrorMessage(
-        expectation.errorMsg.firstAndLastNameMustNotExceed30Char
-      );
+      await helper.expectErrorMessage(expectation.errorMsg.firstAndLastNameMustNotExceed30Char);
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplaySubmitRegister();
