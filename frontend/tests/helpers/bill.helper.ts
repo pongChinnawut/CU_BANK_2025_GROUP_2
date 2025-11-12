@@ -21,4 +21,10 @@ export class BillHelper {
     const accountNavLink = this.page.locator(locators.accountNavLink);
     await expect(accountNavLink).toBeVisible();
   }
+
+  async expectDisplayBalance(balance: number) {
+    const userBalance = this.page.locator(locators.userBalance);
+    await expect(userBalance).toBeVisible();
+    await expect(userBalance).toContainText(`${balance}`);
+  }
 }

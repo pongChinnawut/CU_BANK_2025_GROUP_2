@@ -4,6 +4,10 @@ const navLink = {
   accountNavLink: '//*[@id="root"]/div/nav/div/a[1]',
 };
 
+const userDetails = {
+  userBalance: '//*[@id="root"]/div/div/div/div[2]/article/h1[3]',
+};
+
 const accountForm = {
   accountFormAccountId: '//*[@id="root"]/div/div/div/div[5]/div[2]//*[@id="accountId"]',
   accountFormAmount: '//*[@id="root"]/div/div/div/div[5]/div[2]//*[@id="amount"]',
@@ -37,6 +41,7 @@ const billForm = {
 
 export const locators = {
   ...navLink,
+  ...userDetails,
   ...registerForm,
   ...loginForm,
   ...accountForm,

@@ -23,7 +23,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
 
-    await test.step(`${step.step2_fill_in_amount} is ${authHelper.user.balance}`, async () => {
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
       await helper.fillAmount(data);
     });
     await test.step(step.step3_submit_form, async () => {
@@ -31,9 +31,12 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     // Expect
-    await test.step(getText(expectation.step.expect1, { amount: data.amount }), async () => {
-      await helper.expectTooltipErrorMessage(expectation.errorMsg.plase_select_options);
-    });
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
     });
