@@ -6,15 +6,17 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 export default defineConfig({
   testDir: "./tests",
-  fullyParallel: true,
   globalSetup: require.resolve("./global-setup"),
   globalTeardown: require.resolve("./global-teardown"),
   use: {
     baseURL: process.env.TEST_BASE_URL!,
     screenshot: "only-on-failure",
     video: "retain-on-failure",
-    // headless: false
+    // headless: false,
+    // launchOptions: { slowMo: 1000 },
   },
+  workers: 1,
+  fullyParallel: false,
   projects: [
     {
       name: "setup", // runs this common file first
