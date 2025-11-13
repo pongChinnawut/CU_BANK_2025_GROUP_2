@@ -13,6 +13,10 @@ export async function clearUserTransactionsByAccountId(accountId: string) {
   await User.updateOne({ accountId }, { $unset: { transactions: "" } });
 }
 
+export async function updateBalanceByAccountId(accountId: string, balance: number) {
+  await User.updateOne({ accountId }, { $set: { balance } });
+}
+
 export async function findUserByAccountId(accountId: string) {
   return await User.findOne({ accountId: accountId });
 }
