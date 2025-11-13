@@ -9,6 +9,11 @@ export class BillHelper {
     return text;
   }
 
+  async getTransactions() {
+    const list = await this.page.locator(locators.transactions).count();
+    return list;
+  }
+
   async selectBill(label: string) {
     await this.page.locator(`input[value="${label}"]`).check();
   }
@@ -21,6 +26,15 @@ export class BillHelper {
     await this.page.click(locators.billFormSubmitButton);
   }
 
+  async submitTransaction() {
+    await Promise.allSettled([
+      this.page.waitForResponse(res => res.url().includes("/transactions") && res.ok(), {
+        timeout: 3000,
+      }),
+      this.page.click(locators.billFormSubmitButton),
+    ]);
+  }
+
   async expectTooltipErrorMessage(locator: string, expected: string) {
     const errorMsg = this.page.locator(locator);
     await expect(errorMsg).toHaveJSProperty("validationMessage", expected);
@@ -31,20 +45,19 @@ export class BillHelper {
     await expect(accountNavLink).toBeVisible();
   }
 
-  async expectDisplayBalance(balance: string) {
-    const userBalance = this.page.locator(locators.userBalance);
-    await expect(userBalance).toBeVisible();
-    await expect(userBalance).toContainText(`${balance}`);
+  async expectBalanceChange(expected: number) {
+    const received = await this.getBalance();
+    await expect(+received).toBe(expected);
+  }
+
+  async expectTransactionsToDisplay(beforeTransactionCount: number) {
+    const countAfter = await this.getTransactions();
+    await expect(countAfter).toBe(beforeTransactionCount);
   }
 
   async expectDisplayTransactions() {
     const transactions = this.page.locator(locators.transactions);
     await expect(transactions).toBeVisible();
-  }
-
-  async expectDisplayNoTransactions() {
-    const transactions = this.page.locator(locators.transactions);
-    await expect(transactions).not.toBeVisible();
   }
 
   async expectDisplayErrorMessage(error: string) {
