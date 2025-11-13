@@ -36,6 +36,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -48,10 +49,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -72,6 +73,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -87,10 +89,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -110,6 +112,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -122,10 +125,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -145,6 +148,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -160,10 +164,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -180,6 +184,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -196,10 +201,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -217,6 +222,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -232,10 +238,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -255,6 +261,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -267,10 +274,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -290,6 +297,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -305,10 +313,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(+beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -325,6 +333,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -341,10 +350,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -362,6 +371,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -377,10 +387,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -400,6 +410,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -412,10 +423,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -435,6 +446,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -450,10 +462,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
@@ -470,6 +482,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
     const balance = await helper.getBalance();
+    const beforeTransactions = await helper.getTransactions();
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
@@ -486,10 +499,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     // Expect
     await test.step(getText(expectation.step.expect1, { balance: balance }), async () => {
-      await helper.expectDisplayBalance(balance);
+      await helper.expectBalanceChange(+balance);
     });
     await test.step(expectation.step.expect2, async () => {
-      await helper.expectDisplayNoTransactions();
+      await helper.expectTransactionsToDisplay(beforeTransactions);
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
