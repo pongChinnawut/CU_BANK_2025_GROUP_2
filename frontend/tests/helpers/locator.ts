@@ -34,6 +34,7 @@ const registerForm = {
 const depositForm = {
   depositAmount: '//*[@id="amount"]',
   depositSubmitButton: '//*[@id="root"]/div/div/div/div[3]/div[2]/form/button',
+  depositErrorText: '//*[@id="root"]/div/div/div/div[3]/div[2]/form/div/label',
 };
 
 const billForm = {

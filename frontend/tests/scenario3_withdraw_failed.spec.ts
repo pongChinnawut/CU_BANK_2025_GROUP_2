@@ -27,11 +27,55 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     // Expect
-    // await test.step(expectation.step.expect1, async () => {
-    //   await helper.expectErrorMessage(expectation.errorMsg.account_id_should_contain_numbers_only);
-    // });
-    // await test.step(expectation.step.expect3, async () => {
-    //   await helper.expectDisplayAccountNavLink();
-    // });
+    await test.step(expectation.step.expect1, async () => {
+      await helper.expectErrorMessage(expectation.errorMsg.enter_a_number);
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayAccountPage();
+    });
+  });
+
+  test("TC22: Deposit with decimal amount", async ({ page }) => {
+    const data = testcase.TC22.data;
+    const step = testcase.TC22.step;
+    const expectation = testcase.TC22.expectation;
+
+    const helper = new DepositHelper(page);
+    await test.step(`${step.step1_fill_in_deposit} is ${data.amount}`, async () => {
+      await helper.fillDepositAmount(data);
+    });
+    await test.step(step.step2_click_confirm_button_to_submit, async () => {
+      await helper.submitDeposit();
+    });
+
+    // Expect
+    await test.step(expectation.step.expect1, async () => {
+      await helper.expectErrorMessageTooltip(expectation.errorMsg.enter_a_valid_value_nearst);
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayAccountPage();
+    });
+  });
+
+  test("TC23: Deposit with negative or 0 amount", async ({ page }) => {
+    const data = testcase.TC23.data;
+    const step = testcase.TC23.step;
+    const expectation = testcase.TC23.expectation;
+
+    const helper = new DepositHelper(page);
+    await test.step(`${step.step1_fill_in_deposit} is ${data.amount}`, async () => {
+      await helper.fillDepositAmount(data);
+    });
+    await test.step(step.step2_click_confirm_button_to_submit, async () => {
+      await helper.submitDeposit();
+    });
+
+    // Expect
+    await test.step(expectation.step.expect1, async () => {
+      await helper.expectErrorMessage(expectation.errorMsg.amount_must_be_greater_than_zero);
+    });
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayAccountPage();
+    });
   });
 });

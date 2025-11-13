@@ -27,6 +27,10 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     const step = testcase.TC1.step;
     const expectation = testcase.TC1.expectation;
 
+    // Prepare data
+    deleteUserByAccountId(data.accountId);
+
+    // Testing
     const helper = new RegistrationHelper(page);
 
     await test.step(step.step1_click_register_button_on_top_bar, async () => {
@@ -57,9 +61,6 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplayTextLogin();
     });
-
-    // Tear Down
-    deleteUserByAccountId(data.accountId);
   });
 
   test("TC12: Login with non-numeric account number", async ({ page }) => {

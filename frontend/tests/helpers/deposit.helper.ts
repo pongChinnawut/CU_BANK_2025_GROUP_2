@@ -12,6 +12,17 @@ export class DepositHelper {
     await this.page.fill(locators.depositAmount, data.amount);
   }
 
+  async expectErrorMessage(expected: string) {
+    const errorMsg = this.page.locator(locators.depositErrorText);
+    await expect(errorMsg).toHaveText(expected);
+  }
+
+  async expectErrorMessageTooltip(expected: string) {
+    const amountInput = this.page.locator("#amount").first();
+    const message = await amountInput.evaluate((el: HTMLInputElement) => el.validationMessage);
+    await expect(message).toContain(expected);
+  }
+
   async fillAccountId(data: any) {
     await this.page.fill(locators.accountId, data.accountId);
   }
@@ -31,10 +42,5 @@ export class DepositHelper {
   async expectDisplayAccountPage() {
     const registerNavLink = this.page.locator(locators.accountNavLink);
     await expect(registerNavLink).toBeVisible();
-  }
-
-  async expectErrorMessage(expected: string) {
-    const errorMsg = this.page.locator(locators.errorMsgLogin);
-    await expect(errorMsg).toHaveText(expected);
   }
 }

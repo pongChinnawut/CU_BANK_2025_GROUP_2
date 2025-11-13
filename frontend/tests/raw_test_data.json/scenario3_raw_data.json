@@ -1,7 +1,7 @@
 {
   "testcase": {
     "TC21": {
-      "name": "Deposit with non-numeric amount ",
+      "name": "Deposit with non-numeric amount",
       "step": {
         "step1_fill_in_deposit": "Fill in account ID",
         "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
@@ -11,13 +11,49 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message account ID should contain numbers only.",
-          "expect2": "Display the same balance",
-          "expect3": "Display account on nav link on the account page",
-          "expect4": "Display no new balance on the account page"
+          "expect1": "Display error message Enter a number",
+          "expect2": "Display account on nav link on the account page"
         },
         "errorMsg": {
-          "account_id_should_contain_numbers_only": "Your account ID should contain numbers only."
+          "enter_a_number": "Enter a number"
+        }
+      }
+    },
+    "TC22": {
+      "name": "Deposit with decimal amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in account ID",
+        "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
+      },
+      "data": {
+        "amount": "500.50"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message tooltip Enter a valid value",
+          "expect2": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "enter_a_valid_value_nearst": "Please enter a valid value. The two nearest valid values are 500 and 501."
+        }
+      }
+    },
+    "TC23": {
+      "name": "Deposit with negative or 0 amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in account ID",
+        "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
+      },
+      "data": {
+        "amount": "-100"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message tooltip Enter a valid value",
+          "expect2": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "amount_must_be_greater_than_zero": "The amount must be greater than 0. Please enter a positive number."
         }
       }
     }
