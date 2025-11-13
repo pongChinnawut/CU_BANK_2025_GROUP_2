@@ -8,7 +8,7 @@
         "step3_submit_form": "Confrim bill payment"
       },
       "data": {
-        "bill_type": "Water Charge",
+        "bill_type": "water",
         "amount": "500"
       },
       "expectation": {
@@ -31,7 +31,7 @@
         "step3_submit_form": "Confrim bill payment"
       },
       "data": {
-        "bill_type": "Water Charge",
+        "bill_type": "water",
         "amount": "ABC"
       },
       "expectation": {
@@ -54,7 +54,7 @@
         "step3_submit_form": "Confrim bill payment"
       },
       "data": {
-        "bill_type": "Water Charge",
+        "bill_type": "water",
         "amount": "200.50"
       },
       "expectation": {
@@ -77,7 +77,7 @@
         "step3_submit_form": "Confrim bill payment"
       },
       "data": {
-        "bill_type": "Water Charge",
+        "bill_type": "water",
         "amount": "-100"
       },
       "expectation": {
@@ -100,8 +100,192 @@
         "step3_submit_form": "Confrim bill payment"
       },
       "data": {
-        "bill_type": "Water Charge",
-        "amount": "2000"
+        "bill_type": "water",
+        "amount": "20000"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display your balance is not enough to complete the bill payment."
+        },
+        "errorMsg": {
+          "not_enough": "Your balance is not enough to complete the bill payment."
+        }
+      }
+    },
+    "TC47": {
+      "name": "Pay electric bill with non-numeric amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "electric",
+        "amount": "ABC"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a tooltip enter a number"
+        },
+        "errorMsg": {
+          "enter_number": "Enter a number"
+        }
+      }
+    },
+    "TC48": {
+      "name": "Pay electric bill with decimal amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "electric",
+        "amount": "200.50"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a tooltip enter valid valuer"
+        },
+        "errorMsg": {
+          "enter_number": "Please enter a valid value. The two nearest valid values are 200 and 201."
+        }
+      }
+    },
+    "TC49": {
+      "name": "Pay electric bill with negative or 0 amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "electric",
+        "amount": "-100"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account the amount must be greater than 0. Please enter a positive number."
+        },
+        "errorMsg": {
+          "enter_number": "The amount must be greater than 0. Please enter a positive number."
+        }
+      }
+    },
+    "TC50": {
+      "name": "Pay electric bill with insufficient balance",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "electric",
+        "amount": "20000"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display your balance is not enough to complete the bill payment."
+        },
+        "errorMsg": {
+          "not_enough": "Your balance is not enough to complete the bill payment."
+        }
+      }
+    },
+    "TC51": {
+      "name": "Pay phone bill with non-numeric amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "phone",
+        "amount": "ABC"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a tooltip enter a number"
+        },
+        "errorMsg": {
+          "enter_number": "Enter a number"
+        }
+      }
+    },
+    "TC52": {
+      "name": "Pay phone bill with decimal amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "phone",
+        "amount": "200.50"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account a tooltip enter valid valuer"
+        },
+        "errorMsg": {
+          "enter_number": "Please enter a valid value. The two nearest valid values are 200 and 201."
+        }
+      }
+    },
+    "TC53": {
+      "name": "Pay phone bill with negative or 0 amount",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "phone",
+        "amount": "-100"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the balance remains {{balance}} baht",
+          "expect2": "Display no new transaction in history",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display account the amount must be greater than 0. Please enter a positive number."
+        },
+        "errorMsg": {
+          "enter_number": "The amount must be greater than 0. Please enter a positive number."
+        }
+      }
+    },
+    "TC54": {
+      "name": "Pay phone bill with insufficient balance",
+      "step": {
+        "step1_select_one_option": "Select one of theses options",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_submit_form": "Confrim bill payment"
+      },
+      "data": {
+        "bill_type": "phone",
+        "amount": "20000"
       },
       "expectation": {
         "step": {

@@ -4,6 +4,10 @@ import { locators } from "./locator";
 export class BillHelper {
   constructor(private page: Page) {}
 
+  async selectBill(label: string) {
+    await this.page.locator(`input[value="${label}"]`).check();
+  }
+
   async fillAmount(data: any) {
     await this.page.fill(locators.billFormAmount, data.amount);
   }
@@ -35,7 +39,6 @@ export class BillHelper {
 
   async expectDisplayErrorMessage(error: string) {
     const billFormErrorMessage = this.page.locator(locators.billFormErrorMessage);
-    await expect(billFormErrorMessage).toBeVisible();
-    // await expect(billFormErrorMessage).toContainText(error);
+    await expect(billFormErrorMessage).toContainText(error);
   }
 }

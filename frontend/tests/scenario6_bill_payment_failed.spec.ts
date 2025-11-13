@@ -1,7 +1,7 @@
 import { LoginHelper } from "./helpers/login.helper";
 import { testcase } from "./raw_test_data.json/scenario6_raw_data.json";
 import defineConfig from "../playwright.config";
-import { expect, test } from "./fixtures/auth-fixtures";
+import { test } from "./fixtures/auth-fixtures";
 import { BillHelper } from "./helpers/bill.helper";
 import { AuthHelper } from "./helpers/auth.helper";
 import { getText } from "./utils/text";
@@ -66,6 +66,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
   });
 
+  //   💧water bill💧
   test("TC43: Pay water bill with non-numeric amount", async ({ page }) => {
     const data = testcase.TC43.data;
     const step = testcase.TC43.step;
@@ -75,6 +76,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
     await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
       await helper.fillAmount(data);
     });
@@ -149,6 +153,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
     await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
       await helper.fillAmount(data);
     });
@@ -183,12 +190,321 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
     await clearUserTransactionsByAccountId(authHelper.user.accountId);
 
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+
     await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
       await helper.fillAmount(data);
     });
     await test.step(step.step3_submit_form, async () => {
       await helper.submitForm();
-      await page.waitForLoadState("networkidle");
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayErrorMessage(expectation.errorMsg.not_enough);
+    });
+  });
+
+  //   ⚡️electric bill⚡️
+  test("TC47: Pay electric bill with non-numeric amount", async ({ page }) => {
+    const data = testcase.TC47.data;
+    const step = testcase.TC47.step;
+    const expectation = testcase.TC47.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTooltipErrorMessage(
+        locators.billFormAmount,
+        expectation.errorMsg.enter_number
+      );
+    });
+  });
+
+  test("TC48: Pay electric bill with decimal amount", async ({ page }) => {
+    const data = testcase.TC48.data;
+    const step = testcase.TC48.step;
+    const expectation = testcase.TC48.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTooltipErrorMessage(
+        locators.billFormAmount,
+        expectation.errorMsg.enter_number
+      );
+    });
+  });
+
+  test("TC49: Pay electric bill with negative or 0 amount", async ({ page }) => {
+    const data = testcase.TC49.data;
+    const step = testcase.TC49.step;
+    const expectation = testcase.TC49.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayErrorMessage(expectation.errorMsg.enter_number);
+    });
+  });
+
+  test("TC50: Pay water electric with insufficient balance", async ({ page }) => {
+    const data = testcase.TC50.data;
+    const step = testcase.TC50.step;
+    const expectation = testcase.TC50.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayErrorMessage(expectation.errorMsg.not_enough);
+    });
+  });
+
+  //   📱phone bill📱
+  test("TC51: Pay phone bill with non-numeric amount", async ({ page }) => {
+    const data = testcase.TC51.data;
+    const step = testcase.TC51.step;
+    const expectation = testcase.TC51.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTooltipErrorMessage(
+        locators.billFormAmount,
+        expectation.errorMsg.enter_number
+      );
+    });
+  });
+
+  test("TC52: Pay phone bill with decimal amount", async ({ page }) => {
+    const data = testcase.TC52.data;
+    const step = testcase.TC52.step;
+    const expectation = testcase.TC52.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTooltipErrorMessage(
+        locators.billFormAmount,
+        expectation.errorMsg.enter_number
+      );
+    });
+  });
+
+  test("TC53: Pay phone bill with negative or 0 amount", async ({ page }) => {
+    const data = testcase.TC53.data;
+    const step = testcase.TC53.step;
+    const expectation = testcase.TC53.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
+    });
+
+    // Expect
+    await test.step(
+      getText(expectation.step.expect1, { balance: authHelper.user.balance }),
+      async () => {
+        await helper.expectDisplayBalance(authHelper.user.balance);
+      }
+    );
+    await test.step(expectation.step.expect2, async () => {
+      await helper.expectDisplayNoTransactions();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectDisplayErrorMessage(expectation.errorMsg.enter_number);
+    });
+  });
+
+  test("TC54: Pay phone electric with insufficient balance", async ({ page }) => {
+    const data = testcase.TC54.data;
+    const step = testcase.TC54.step;
+    const expectation = testcase.TC54.expectation;
+    const helper = new BillHelper(page);
+    const authHelper = new AuthHelper();
+
+    await clearUserTransactionsByAccountId(authHelper.user.accountId);
+
+    await test.step(`${step.step1_select_one_option} is ${data.bill_type}`, async () => {
+      await helper.selectBill(data.bill_type);
+    });
+
+    await test.step(`${step.step2_fill_in_amount} is ${data.amount}`, async () => {
+      await helper.fillAmount(data);
+    });
+    await test.step(step.step3_submit_form, async () => {
+      await helper.submitForm();
     });
 
     // Expect
