@@ -1,0 +1,25 @@
+{
+  "testcase": {
+    "TC21": {
+      "name": "Deposit with non-numeric amount ",
+      "step": {
+        "step1_fill_in_deposit": "Fill in account ID",
+        "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
+      },
+      "data": {
+        "amount": "ABC"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message account ID should contain numbers only.",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "account_id_should_contain_numbers_only": "Your account ID should contain numbers only."
+        }
+      }
+    }
+  }
+}

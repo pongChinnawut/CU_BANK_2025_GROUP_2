@@ -31,6 +31,11 @@ const registerForm = {
   errorMsgRegister: '//*[@id="root"]/div/div/div/form/div/label',
 };
 
+const depositForm = {
+  depositAmount: '//*[@id="amount"]',
+  depositSubmitButton: '//*[@id="root"]/div/div/div/div[3]/div[2]/form/button',
+};
+
 const billForm = {
   billFormAmount: '//*[@id="root"]/div/div/div/div[6]/div[2]/form//*[@id="amount"]',
   billFormWaterCharge: '//*[@id="root"]/div/div/div/div[6]/div[2]/form/div[1]/input[1]',
@@ -52,4 +57,5 @@ export const locators = {
   ...accountForm,
   ...billForm,
   ...transactionsHistory,
+  ...depositForm,
 };
