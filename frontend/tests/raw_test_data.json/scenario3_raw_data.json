@@ -3,7 +3,7 @@
     "TC21": {
       "name": "Deposit with non-numeric amount",
       "step": {
-        "step1_fill_in_deposit": "Fill in account ID",
+        "step1_fill_in_deposit": "Fill in deposit amount",
         "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
       },
       "data": {
@@ -22,7 +22,7 @@
     "TC22": {
       "name": "Deposit with decimal amount",
       "step": {
-        "step1_fill_in_deposit": "Fill in account ID",
+        "step1_fill_in_deposit": "Fill in deposit amount",
         "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
       },
       "data": {
@@ -41,7 +41,7 @@
     "TC23": {
       "name": "Deposit with negative or 0 amount",
       "step": {
-        "step1_fill_in_deposit": "Fill in account ID",
+        "step1_fill_in_deposit": "Fill in deposit amount",
         "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
       },
       "data": {

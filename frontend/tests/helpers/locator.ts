@@ -37,6 +37,12 @@ const depositForm = {
   depositErrorText: '//*[@id="root"]/div/div/div/div[3]/div[2]/form/div/label',
 };
 
+const withdrawForm = {
+  withdrawAmount: '//*[@id="amount"]',
+  withdrawSubmitButton: '//*[@id="root"]/div/div/div/div[4]/div[2]/form/button',
+  withdrawErrorText: '//*[@id="root"]/div/div/div/div[4]/div[2]/form/div/label',
+};
+
 const billForm = {
   billFormAmount: '//*[@id="root"]/div/div/div/div[6]/div[2]/form//*[@id="amount"]',
   billFormWaterCharge: '//*[@id="root"]/div/div/div/div[6]/div[2]/form/div[1]/input[1]',
@@ -59,4 +65,5 @@ export const locators = {
   ...billForm,
   ...transactionsHistory,
   ...depositForm,
+  ...withdrawForm,
 };
