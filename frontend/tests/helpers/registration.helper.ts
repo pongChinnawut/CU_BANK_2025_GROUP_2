@@ -50,6 +50,10 @@ export class RegistrationHelper {
 
   async expectDisplayTextLogin() {
     const loginText = this.page.locator(locators.textLoginInMiddlePage);
-    await expect(loginText).toBeVisible();
+    await expect(loginText).toHaveText("Login");
+  }
+
+  async expectRedirectToLoginPage() {
+    await expect(this.page).toHaveURL("/");
   }
 }

@@ -11,14 +11,15 @@
         "step6_click_register_button_to_submit": "Click register button to submit"
       },
       "data": {
-        "accountId": "1234567890",
+        "accountId": "1234567899",
         "password": "1234",
         "firstName": "Joe",
         "lastName": "Doe"
       },
       "expectation": {
         "step": {
-          "expect1": "Display login page"
+          "expect1": "Redirect to login page",
+          "expect2": "Display login page"
         }
       }
     },

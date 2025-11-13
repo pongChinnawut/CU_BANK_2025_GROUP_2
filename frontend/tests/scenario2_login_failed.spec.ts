@@ -2,7 +2,11 @@ import { test } from "@playwright/test";
 import { RegistrationHelper } from "./helpers/registration.helper";
 import { testcase } from "./raw_test_data.json/scenario2_raw_data.json";
 import defineConfig from "../playwright.config";
-import { connectDatabase, disconnectDatabase } from "./helpers/database/action.helper";
+import {
+  connectDatabase,
+  disconnectDatabase,
+  deleteUserByAccountId,
+} from "./helpers/database/action.helper";
 import { LoginHelper } from "./helpers/login.helper";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
@@ -18,7 +22,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     disconnectDatabase();
   });
 
-  test("TC2: Register with non-numeric account number", async ({ page }) => {
+  test("TC1: Register with all valid inputs", async ({ page }) => {
     const data = testcase.TC1.data;
     const step = testcase.TC1.step;
     const expectation = testcase.TC1.expectation;
@@ -47,9 +51,15 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
 
     // Expect
-    await test.step(expectation.step.expect1, async () => {
+    await test.step(`${expectation.step.expect1}`, async () => {
+      await helper.expectRedirectToLoginPage();
+    });
+    await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplayTextLogin();
     });
+
+    // Tear Down
+    deleteUserByAccountId(data.accountId);
   });
 
   test("TC12: Login with non-numeric account number", async ({ page }) => {
