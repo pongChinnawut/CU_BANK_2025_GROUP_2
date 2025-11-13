@@ -4,12 +4,17 @@ import { locators } from "./locator";
 export class BillHelper {
   constructor(private page: Page) {}
 
+  async getBalance() {
+    const text = (await this.page.locator(locators.userBalance).textContent()) || "";
+    return text;
+  }
+
   async selectBill(label: string) {
     await this.page.locator(`input[value="${label}"]`).check();
   }
 
   async fillAmount(data: any) {
-    await this.page.fill(locators.billFormAmount, data.amount);
+    await this.page.fill(locators.billFormAmount, `${data.amount}`);
   }
 
   async submitForm() {
@@ -26,10 +31,15 @@ export class BillHelper {
     await expect(accountNavLink).toBeVisible();
   }
 
-  async expectDisplayBalance(balance: number) {
+  async expectDisplayBalance(balance: string) {
     const userBalance = this.page.locator(locators.userBalance);
     await expect(userBalance).toBeVisible();
     await expect(userBalance).toContainText(`${balance}`);
+  }
+
+  async expectDisplayTransactions() {
+    const transactions = this.page.locator(locators.transactions);
+    await expect(transactions).toBeVisible();
   }
 
   async expectDisplayNoTransactions() {
