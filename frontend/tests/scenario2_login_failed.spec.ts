@@ -15,7 +15,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
   });
 
   test.beforeAll(async () => {
-    connectDatabase();
+    await connectDatabase();
   });
 
   test.afterAll(async () => {
