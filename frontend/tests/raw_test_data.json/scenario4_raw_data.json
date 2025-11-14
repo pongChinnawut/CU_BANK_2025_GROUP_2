@@ -1,0 +1,39 @@
+{
+  "testcase": {
+    "TC20": {
+      "name": "Deposit with valid amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in deposit amount",
+        "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
+      },
+      "data": {
+        "amount": "1500"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Enter a number",
+          "expect2": "Display account on nav link on the account page"
+        }
+      }
+    },
+    "TC28": {
+      "name": "Withdrawal with insufficient balance",
+      "step": {
+        "step1_fill_in_deposit": "Fill in withdraw amount",
+        "step2_click_confirm_button_to_submit": "Click confirm button to withdraw"
+      },
+      "data": {
+        "amount": "2000"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message balance is not enough",
+          "expect2": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "balance_is_not_enough": "Your balance is not enough to complete the withdrawal."
+        }
+      }
+    }
+  }
+}
