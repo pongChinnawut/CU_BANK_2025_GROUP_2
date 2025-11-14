@@ -32,7 +32,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
   });
 
-  //   💧water bill💧
+  // water bill
   test("TC39: Pay water bill with valid amount", async ({ page }) => {
     const data = testcase.TC39.data;
     const step = testcase.TC39.step;
@@ -95,7 +95,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
       await page.waitForLoadState("networkidle");
     });
 
-    // // Expect
+    // Expect
     const total = balance - data.amount;
     await test.step(
       getText(expectation.step.expect1, {
@@ -139,7 +139,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
       await page.waitForLoadState("networkidle");
     });
 
-    // // Expect
+    // Expect
     const total = balance - data.amount;
     await test.step(
       getText(expectation.step.expect1, {

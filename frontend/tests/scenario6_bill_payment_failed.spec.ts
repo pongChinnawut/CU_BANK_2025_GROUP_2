@@ -65,7 +65,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
   });
 
-  //   💧water bill💧
+  // water bill
   test("TC43: Pay water bill with non-numeric amount", async ({ page }) => {
     const data = testcase.TC43.data;
     const step = testcase.TC43.step;
