@@ -51,7 +51,8 @@
       "expectation": {
         "step": {
           "expect1": "Display error message Enter a valid value",
-          "expect2": "Display account on nav link on the account page"
+          "expect2": "Display account on nav link on the account page",
+          "expect3": "Display balance amount"
         },
         "errorMsg": {
           "amount_must_be_greater_than_zero": "The amount must be greater than 0. Please enter a positive number."

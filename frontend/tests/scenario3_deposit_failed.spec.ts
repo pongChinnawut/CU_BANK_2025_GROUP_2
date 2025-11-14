@@ -98,5 +98,8 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplayAccountPage();
     });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayBalance(`${balanceAmount}`);
+    });
   });
 });
