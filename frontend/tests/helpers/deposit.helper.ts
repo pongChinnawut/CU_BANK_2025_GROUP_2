@@ -43,4 +43,14 @@ export class DepositHelper {
     const registerNavLink = this.page.locator(locators.accountNavLink);
     await expect(registerNavLink).toBeVisible();
   }
+
+  async submitTransaction() {
+    await Promise.allSettled([
+      this.page.waitForResponse(res => res.url().includes("/transactions") && res.ok(), {
+        timeout: 3000,
+      }),
+      this.page.click(locators.depositSubmitButton),
+    ]);
+    await this.page.waitForLoadState("networkidle");
+  }
 }

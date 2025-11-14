@@ -44,4 +44,13 @@ export class WithdrawHelper {
     const registerNavLink = this.page.locator(locators.accountNavLink);
     await expect(registerNavLink).toBeVisible();
   }
+
+  async submitTransaction() {
+    await Promise.allSettled([
+      this.page.waitForResponse(res => res.url().includes("/transactions") && res.ok(), {
+        timeout: 3000,
+      }),
+      await this.submitWithdraw(),
+    ]);
+  }
 }

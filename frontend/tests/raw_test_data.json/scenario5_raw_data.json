@@ -23,6 +23,24 @@
         }
       }
     },
+    "TC24": {
+      "name": "Withdrawal with valid amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in withdraw amount",
+        "step2_click_confirm_button_to_submit": "Click confirm button to withdraw"
+      },
+      "data": {
+        "amount": "500"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message balance is not enough",
+          "expect2": "Display account on nav link on the account page",
+          "expect3": "Display balance is {{total}} baht ({{oldBalance}} + {{newBalance}})",
+          "expect4": "Display transaction history shows: 'withdraw' with amount {{amount}}"
+        }
+      }
+    },
     "TC31": {
       "name": "Transfer with target account less than 10 digits",
       "step": {
