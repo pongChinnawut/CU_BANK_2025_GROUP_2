@@ -1,0 +1,29 @@
+{
+  "testcase": {
+    "TC29": {
+      "name": "Transfer with valid inputs ",
+      "step": {
+        "step1_fill_in_account_id": "Fill in target account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "1234567890",
+        "amount": "300",
+        "targetUser": {
+          "accountId": "2468101214",
+          "password": "1234",
+          "firstName": "Target",
+          "lastName": "Transfer"
+        }
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display the remains balance is {{balance}} baht",
+          "expect2": "Display transaction history shows: 'transfer to' with target: {{target}} and amount {{amount}} for source",
+          "expect3": "Display account on nav link on the account page"
+        }
+      }
+    }
+  }
+}

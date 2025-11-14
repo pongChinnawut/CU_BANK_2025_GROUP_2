@@ -50,6 +50,10 @@ const transactionsHistory = {
   transactions: '//*[@id="root"]/div/div/div/div[7]/div',
 };
 
+const recentTransactionHistory = {
+  recentTransaction: `${transactionsHistory.transactions}[last()]`,
+};
+
 export const locators = {
   ...navLink,
   ...userDetails,
@@ -59,4 +63,5 @@ export const locators = {
   ...billForm,
   ...transactionsHistory,
   ...depositForm,
+  ...recentTransactionHistory,
 };
