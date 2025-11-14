@@ -32,7 +32,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
   });
 
-  test("TC30: Transfer with non-numeric target account", async ({ page }) => {
+  test("TC29: Transfer with valid inputs ", async ({ page }) => {
     const data = testcase.TC29.data;
     const step = testcase.TC29.step;
     const expectation = testcase.TC29.expectation;
