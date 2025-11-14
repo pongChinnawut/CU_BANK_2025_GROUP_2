@@ -45,7 +45,7 @@ export class TransferHelper {
     await expect(countAfter).toBe(beforeTransactionCount);
   }
 
-  async expectDisplayTransaction(account: number, amount: number, balance: number) {
+  async expectDisplayTransaction(account: number | string, amount: number, balance: number) {
     const recentTransaction = this.page.locator(locators.recentTransaction).last();
     await expect(recentTransaction).toBeVisible();
     await expect(recentTransaction).toContainText(`target: ${account}`);

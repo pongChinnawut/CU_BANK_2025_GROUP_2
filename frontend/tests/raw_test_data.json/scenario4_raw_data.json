@@ -19,7 +19,8 @@
         "step": {
           "expect1": "Display error message Enter a number",
           "expect2": "Display account on nav link on the account page",
-          "expect3": "Display transaction history shows: 'deposit to' with target: {{target}} and amount {{amount}} for source"
+          "expect3": "Display balance is {{total}} baht ({{oldBalance}} + {{newBalance}})",
+          "expect4": "Display transaction history shows: 'deposit' with amount 1500"
         }
       }
     },

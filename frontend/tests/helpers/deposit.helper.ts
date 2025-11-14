@@ -55,4 +55,14 @@ export class DepositHelper {
     const balanceWord = this.page.locator(locators.balanceAmount);
     await expect(balanceWord).toHaveText(balance);
   }
+
+  async submitTransaction() {
+    await Promise.allSettled([
+      this.page.waitForResponse(res => res.url().includes("/transactions") && res.ok(), {
+        timeout: 3000,
+      }),
+      this.page.click(locators.depositSubmitButton),
+    ]);
+    await this.page.waitForLoadState("networkidle");
+  }
 }
