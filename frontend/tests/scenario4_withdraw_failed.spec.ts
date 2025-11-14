@@ -15,7 +15,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
   test.beforeAll(async () => {
     await connectDatabase();
     const authHelper = new AuthHelper();
-    await updateBalanceByAccountId(authHelper.user.accountId, 1000);
+    await updateBalanceByAccountId(authHelper.user.accountId, 0);
   });
 
   test.afterAll(async () => {

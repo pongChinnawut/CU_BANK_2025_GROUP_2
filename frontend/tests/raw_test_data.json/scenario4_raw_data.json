@@ -31,7 +31,7 @@
           "expect2": "Display account on nav link on the account page"
         },
         "errorMsg": {
-          "balance_is_not_enough": "Insufficient balance to complete the withdrawal. Please check your balance and try again."
+          "balance_is_not_enough": "Your balance is not enough to complete the withdrawal."
         }
       }
     }
