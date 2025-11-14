@@ -9,6 +9,11 @@ export class TransferHelper {
     return text;
   }
 
+  async getTransactions() {
+    const list = await this.page.locator(locators.transactions).count();
+    return list;
+  }
+
   async fillAccountId(data: any) {
     await this.page.fill(locators.accountFormAccountId, data.accountId);
   }
@@ -33,6 +38,11 @@ export class TransferHelper {
   async expectBalanceChange(expected: number) {
     const received = await this.getBalance();
     await expect(+received).toBe(expected);
+  }
+
+  async expectTransactionsToBeEqual(beforeTransactionCount: number) {
+    const countAfter = await this.getTransactions();
+    await expect(countAfter).toBe(beforeTransactionCount);
   }
 
   async expectDisplayTransaction(account: number, amount: number, balance: number) {

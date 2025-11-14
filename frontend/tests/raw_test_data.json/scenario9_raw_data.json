@@ -79,7 +79,7 @@
           "expect1": "Display error message Enter a number",
           "expect2": "Display the same balance",
           "expect3": "Display account on nav link on the account page",
-          "expect4": "Display no new balance on the account page"
+          "expect4": "Display no new transactions on the account page"
         },
         "errorMsg": {
           "enter_a_number": "Enter a number"
@@ -108,7 +108,7 @@
           "expect1": "Display error message Please enter a valid value. The two nearest valid values are 300 and 301.",
           "expect2": "Display the same balance",
           "expect3": "Display account on nav link on the account page",
-          "expect4": "Display no new balance on the account page"
+          "expect4": "Display no new transactions on the account page"
         },
         "errorMsg": {
           "enter_a_number": "Please enter a valid value. The two nearest valid values are 300 and 301."
@@ -137,7 +137,7 @@
           "expect1": "Display error message The amount must be greater than 0. Please enter a positive number.",
           "expect2": "Display the same balance",
           "expect3": "Display account on nav link on the account page",
-          "expect4": "Display no new balance on the account page"
+          "expect4": "Display no new transactions on the account page"
         },
         "errorMsg": {
           "enter_a_number": "The amount must be greater than 0. Please enter a positive number."
@@ -166,7 +166,7 @@
           "expect1": "Display error message Your balance is not enough to complete the transfer.",
           "expect2": "Display the same balance",
           "expect3": "Display account on nav link on the account page",
-          "expect4": "Display no new balance on the account page"
+          "expect4": "Display no new transactions on the account page"
         },
         "errorMsg": {
           "enter_a_number": "Your balance is not enough to complete the transfer."

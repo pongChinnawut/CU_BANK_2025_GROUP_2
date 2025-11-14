@@ -3,7 +3,6 @@ import { testcase } from "./raw_test_data.json/scenario9_raw_data.json";
 import defineConfig from "../playwright.config";
 import { test } from "./fixtures/auth-fixtures";
 import { WithdrawHelper } from "./helpers/withdraw.helper";
-import { DepositHelper } from "./helpers/deposit.helper";
 import {
   connectDatabase,
   disconnectDatabase,
@@ -103,7 +102,6 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const data = testcase.TC35.data;
     const step = testcase.TC35.step;
     const expectation = testcase.TC35.expectation;
-
     // Prepare data before
     const authHelper = new AuthHelper();
     await updateBalanceByAccountId(authHelper.user.accountId, 700);
@@ -117,9 +115,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
         0
       );
     });
-    await page.reload();
 
     const helper = new TransferHelper(page);
+    const beforeTransactions = await helper.getTransactions();
     await test.step(`${step.step1_fill_in_account_id} is ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
@@ -135,6 +133,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     await test.step(expectation.step.expect1, async () => {
       await helper.expectErrorMessage(expectation.errorMsg.enter_a_number);
     });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTransactionsToBeEqual(beforeTransactions);
+    });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
     });
@@ -147,7 +148,6 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     // Prepare data before
     const authHelper = new AuthHelper();
     await updateBalanceByAccountId(authHelper.user.accountId, 700);
-
     await test.step(`Prepare data accountId is ${data.targetUser.accountId}`, async () => {
       insertNewUserAccountIfNotExist(
         data.targetUser.accountId,
@@ -160,6 +160,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     const helper = new TransferHelper(page);
+    const beforeTransactions = await helper.getTransactions();
     await test.step(`${step.step1_fill_in_account_id} is ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
@@ -181,6 +182,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
     });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTransactionsToBeEqual(beforeTransactions);
+    });
   });
   test("TC37: Transfer with negative or 0 amount", async ({ page }) => {
     const data = testcase.TC37.data;
@@ -190,7 +194,6 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     // Prepare data before
     const authHelper = new AuthHelper();
     await updateBalanceByAccountId(authHelper.user.accountId, 700);
-
     await test.step(`Prepare data accountId is ${data.targetUser.accountId}`, async () => {
       insertNewUserAccountIfNotExist(
         data.targetUser.accountId,
@@ -203,6 +206,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     const helper = new TransferHelper(page);
+    const beforeTransactions = await helper.getTransactions();
     await test.step(`${step.step1_fill_in_account_id} is ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
@@ -220,6 +224,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTransactionsToBeEqual(beforeTransactions);
     });
   });
   test("TC38: Transfer with insufficient balance", async ({ page }) => {
@@ -230,7 +237,6 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     // Prepare data before
     const authHelper = new AuthHelper();
     await updateBalanceByAccountId(authHelper.user.accountId, 700);
-
     await test.step(`Prepare data accountId is ${data.targetUser.accountId}`, async () => {
       insertNewUserAccountIfNotExist(
         data.targetUser.accountId,
@@ -243,6 +249,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     const helper = new TransferHelper(page);
+    const beforeTransactions = await helper.getTransactions();
     await test.step(`${step.step1_fill_in_account_id} is ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
@@ -260,6 +267,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
     await test.step(expectation.step.expect3, async () => {
       await helper.expectDisplayAccountNavLink();
+    });
+    await test.step(expectation.step.expect4, async () => {
+      await helper.expectTransactionsToBeEqual(beforeTransactions);
     });
   });
 });

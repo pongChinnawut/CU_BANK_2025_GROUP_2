@@ -12,8 +12,12 @@ import {
 import { AuthHelper } from "./helpers/auth.helper";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`, () => {
+  let BALANCE = 10000;
+
   test.beforeAll(async () => {
-    connectDatabase();
+    const authHelper = new AuthHelper();
+    await connectDatabase();
+    await updateBalanceByAccountId(authHelper.user.accountId, 10000);
   });
 
   test.afterAll(async () => {
@@ -30,13 +34,11 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
 
   //   💧water bill💧
   test("TC39: Pay water bill with valid amount", async ({ page }) => {
-    const balance = 10000;
     const data = testcase.TC39.data;
     const step = testcase.TC39.step;
     const expectation = testcase.TC39.expectation;
     const helper = new BillHelper(page);
     const authHelper = new AuthHelper();
-    await updateBalanceByAccountId(authHelper.user.accountId, balance);
 
     await test.step(getText(step.step1_select_one_option, { bill: data.bill_type }), async () => {
       await helper.selectBill(data.bill_type);
@@ -50,11 +52,11 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     // // Expect
-    const total = balance - data.amount;
+    const total = BALANCE - data.amount;
     await test.step(
       getText(expectation.step.expect1, {
         total: total,
-        balance: balance,
+        balance: BALANCE,
         bill: data.amount,
       }),
       async () => {
