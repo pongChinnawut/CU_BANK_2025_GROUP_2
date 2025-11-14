@@ -7,12 +7,19 @@
         "step2_click_confirm_button_to_submit": "Click confirm button to deposit"
       },
       "data": {
-        "amount": "1500"
+        "amount": "1500",
+        "targetUser": {
+          "accountId": "2468101214",
+          "password": "1234",
+          "firstName": "Target",
+          "lastName": "Transfer"
+        }
       },
       "expectation": {
         "step": {
           "expect1": "Display error message Enter a number",
-          "expect2": "Display account on nav link on the account page"
+          "expect2": "Display account on nav link on the account page",
+          "expect3": "Display transaction history shows: 'deposit to' with target: {{target}} and amount {{amount}} for source"
         }
       }
     },

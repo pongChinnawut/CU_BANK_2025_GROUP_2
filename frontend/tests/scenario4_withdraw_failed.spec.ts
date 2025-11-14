@@ -10,6 +10,7 @@ import {
   updateBalanceByAccountId,
 } from "./helpers/database/action.helper";
 import { AuthHelper } from "./helpers/auth.helper";
+import { getText } from "./utils/text";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`, () => {
   test.beforeAll(async () => {
@@ -44,10 +45,20 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
 
     // Expect
-    // Todo check history deposit
+    const newBalance = 0 + +data.amount;
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplayAccountPage();
     });
+    await test.step(
+      getText(expectation.step.expect2, {
+        target: data.targetUser.accountId,
+        amount: data.amount,
+        balance: newBalance,
+      }),
+      async () => {
+        await helper.expectDisplayTransaction(+data.amount, newBalance);
+      }
+    );
   });
 
   test("TC28: Withdrawal with insufficient balance", async ({ page }) => {

@@ -17,6 +17,13 @@ export class DepositHelper {
     await expect(errorMsg).toHaveText(expected);
   }
 
+  async expectDisplayTransaction(amount: number, balance: number) {
+    const recentTransaction = this.page.locator(locators.recentTransaction).last();
+    await expect(recentTransaction).toBeVisible();
+    await expect(recentTransaction).toContainText(`amount: ${amount}`);
+    await expect(recentTransaction).toContainText(`balance: ${balance}`);
+  }
+
   async expectErrorMessageTooltip(expected: string) {
     const amountInput = this.page.locator("#amount").first();
     const message = await amountInput.evaluate((el: HTMLInputElement) => el.validationMessage);
