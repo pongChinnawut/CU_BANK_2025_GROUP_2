@@ -160,7 +160,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
 
     // Prepare data before
     await test.step(`Prepare data accountId is ${data.accountId}`, async () => {
-      insertNewUserAccountIfNotExist(
+      await insertNewUserAccountIfNotExist(
         data.accountId,
         data.password,
         data.firstName,
