@@ -10,7 +10,7 @@ export class WithdrawHelper {
 
   async fillWithdrawAmount(data: any) {
     const withdrawAmountInput = this.page.locator("#amount").nth(1);
-    await withdrawAmountInput.fill("1000000");
+    await withdrawAmountInput.fill(data.amount);
   }
 
   async expectErrorMessage(expected: string) {

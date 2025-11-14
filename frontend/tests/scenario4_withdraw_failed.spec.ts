@@ -55,6 +55,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     const step = testcase.TC28.step;
     const expectation = testcase.TC28.expectation;
 
+    const authHelper = new AuthHelper();
+    await updateBalanceByAccountId(authHelper.user.accountId, 1000);
+
     const helper = new WithdrawHelper(page);
     await test.step(`${step.step1_fill_in_deposit} is ${data.amount}`, async () => {
       await helper.fillWithdrawAmount(data);

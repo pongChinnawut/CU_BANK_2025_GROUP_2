@@ -52,4 +52,9 @@ export class TransferHelper {
     const accountNavLink = this.page.locator(locators.accountNavLink);
     await expect(accountNavLink).toBeVisible();
   }
+
+  async expectTooltipErrorMessage(locator: string, expected: string) {
+    const errorMsg = this.page.locator(locator);
+    await expect(errorMsg).toHaveJSProperty("validationMessage", expected);
+  }
 }

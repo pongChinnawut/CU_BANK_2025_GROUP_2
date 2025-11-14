@@ -1,0 +1,177 @@
+{
+  "testcase": {
+    "TC25": {
+      "name": "Withdrawal with non-numeric amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in withdraw amount",
+        "step2_click_confirm_button_to_submit": "Click confirm button to withdraw"
+      },
+      "data": {
+        "amount": "ABC"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Enter a number",
+          "expect2": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "enter_a_number": "Enter a number"
+        }
+      }
+    },
+    "TC26": {
+      "name": "Withdrawal with decimal amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in withdraw amount",
+        "step2_click_confirm_button_to_submit": "Click confirm button to withdraw"
+      },
+      "data": {
+        "amount": "500.50"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Please enter a valid value. The two nearest valid values are 500 and 501.",
+          "expect2": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "enter_valid_number": "Please enter a valid value. The two nearest valid values are 500 and 501."
+        }
+      }
+    },
+    "TC27": {
+      "name": "Withdrawal with negative or 0 amount",
+      "step": {
+        "step1_fill_in_deposit": "Fill in withdraw amount",
+        "step2_click_confirm_button_to_submit": "Click confirm button to withdraw"
+      },
+      "data": {
+        "amount": "-100"
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message The amount must be greater than 0. Please enter a positive number.",
+          "expect2": "Display account on nav link on the account page"
+        },
+        "errorMsg": {
+          "enter_valid_number": "The amount must be greater than 0. Please enter a positive number."
+        }
+      }
+    },
+    "TC35": {
+      "name": "Transfer with non-numeric amount",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "2468101214",
+        "amount": "ABC",
+        "targetUser": {
+          "accountId": "2468101214",
+          "password": "1234",
+          "firstName": "Target",
+          "lastName": "Transfer"
+        }
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Enter a number",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "enter_a_number": "Enter a number"
+        }
+      }
+    },
+    "TC36": {
+      "name": "Transfer with decimal amount",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "2468101214",
+        "amount": "300.50",
+        "targetUser": {
+          "accountId": "2468101214",
+          "password": "1234",
+          "firstName": "Target",
+          "lastName": "Transfer"
+        }
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Please enter a valid value. The two nearest valid values are 300 and 301.",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "enter_a_number": "Please enter a valid value. The two nearest valid values are 300 and 301."
+        }
+      }
+    },
+    "TC37": {
+      "name": "Transfer with negative or 0 amount",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "2468101214",
+        "amount": "-100",
+        "targetUser": {
+          "accountId": "2468101214",
+          "password": "1234",
+          "firstName": "Target",
+          "lastName": "Transfer"
+        }
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message The amount must be greater than 0. Please enter a positive number.",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "enter_a_number": "The amount must be greater than 0. Please enter a positive number."
+        }
+      }
+    },
+    "TC38": {
+      "name": "Transfer with insufficient balance",
+      "step": {
+        "step1_fill_in_account_id": "Fill in account ID",
+        "step2_fill_in_amount": "Fill in amount",
+        "step3_click_confirm_button_to_submit": "Click confirm button to submit"
+      },
+      "data": {
+        "accountId": "2468101214",
+        "amount": "2000",
+        "targetUser": {
+          "accountId": "2468101214",
+          "password": "1234",
+          "firstName": "Target",
+          "lastName": "Transfer"
+        }
+      },
+      "expectation": {
+        "step": {
+          "expect1": "Display error message Your balance is not enough to complete the transfer.",
+          "expect2": "Display the same balance",
+          "expect3": "Display account on nav link on the account page",
+          "expect4": "Display no new balance on the account page"
+        },
+        "errorMsg": {
+          "enter_a_number": "Your balance is not enough to complete the transfer."
+        }
+      }
+    }
+  }
+}
