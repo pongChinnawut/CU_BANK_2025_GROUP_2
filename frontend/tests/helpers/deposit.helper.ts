@@ -43,4 +43,9 @@ export class DepositHelper {
     const registerNavLink = this.page.locator(locators.accountNavLink);
     await expect(registerNavLink).toBeVisible();
   }
+
+  async expectDisplayBalance(balance: string) {
+    const balanceWord = this.page.locator(locators.balanceAmount);
+    await expect(balanceWord).toHaveText(balance);
+  }
 }

@@ -13,6 +13,7 @@ const accountForm = {
   accountFormAmount: '//*[@id="root"]/div/div/div/div[5]/div[2]//*[@id="amount"]',
   accountFormComfirmButton: '//*[@id="root"]/div/div/div/div[5]/div[2]/form/button',
   accountFormErrorMessage: '//*[@id="root"]/div/div/div/div[5]/div[2]/form/div[3]/label',
+  balanceAmount: '//*[@id="root"]/div/div/div/div[2]/article/h1[3]',
 };
 
 const loginForm = {

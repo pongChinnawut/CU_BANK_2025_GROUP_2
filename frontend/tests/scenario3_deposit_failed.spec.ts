@@ -3,8 +3,26 @@ import { testcase } from "./raw_test_data.json/scenario3_raw_data.json";
 import defineConfig from "../playwright.config";
 import { test } from "./fixtures/auth-fixtures";
 import { DepositHelper } from "./helpers/deposit.helper";
+import {
+  connectDatabase,
+  disconnectDatabase,
+  updateBalanceByAccountId,
+} from "./helpers/database/action.helper";
+import { AuthHelper } from "./helpers/auth.helper";
 
 test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`, () => {
+  let balanceAmount = 1500;
+
+  test.beforeAll(async () => {
+    await connectDatabase();
+    const authHelper = new AuthHelper();
+    await updateBalanceByAccountId(authHelper.user.accountId, balanceAmount);
+  });
+
+  test.afterAll(async () => {
+    disconnectDatabase();
+  });
+
   test("TC11: Login with all valid inputs", async ({ page }) => {
     const helper = new LoginHelper(page);
 
@@ -54,6 +72,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
     });
     await test.step(expectation.step.expect2, async () => {
       await helper.expectDisplayAccountPage();
+    });
+    await test.step(expectation.step.expect3, async () => {
+      await helper.expectDisplayBalance(`${balanceAmount}`);
     });
   });
 

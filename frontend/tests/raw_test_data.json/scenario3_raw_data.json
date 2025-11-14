@@ -31,7 +31,8 @@
       "expectation": {
         "step": {
           "expect1": "Display error message tooltip Enter a valid value",
-          "expect2": "Display account on nav link on the account page"
+          "expect2": "Display account on nav link on the account page",
+          "expect3": "Display balance amount"
         },
         "errorMsg": {
           "enter_a_valid_value_nearst": "Please enter a valid value. The two nearest valid values are 500 and 501."
@@ -49,7 +50,7 @@
       },
       "expectation": {
         "step": {
-          "expect1": "Display error message tooltip Enter a valid value",
+          "expect1": "Display error message Enter a valid value",
           "expect2": "Display account on nav link on the account page"
         },
         "errorMsg": {
