@@ -33,6 +33,10 @@ export class RegistrationHelper {
     await expect(registerBtn).toBeVisible();
   }
 
+  async expectOnPageRegister() {
+    await expect(this.page).toHaveURL("/register");
+  }
+
   async expectDisplayLoginNavLisk() {
     const loginNavLink = this.page.locator(locators.loginNavLink);
     await expect(loginNavLink).toBeVisible();

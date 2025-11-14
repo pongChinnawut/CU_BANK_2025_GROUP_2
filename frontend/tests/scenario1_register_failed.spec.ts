@@ -108,6 +108,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
     });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
+    });
   });
 
   test("TC4: Register with account number more than 10 digits", async ({ page }) => {
@@ -150,6 +153,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
+    });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
     });
   });
 
@@ -206,6 +212,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
     });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
+    });
 
     // Tear down this case
     await test.step(`Tear down the data accountId is ${data.accountId}`, async () => {
@@ -254,6 +263,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
     });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
+    });
   });
 
   test("TC7: Register with password less than 4 digits", async ({ page }) => {
@@ -296,6 +308,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
+    });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
     });
   });
 
@@ -340,6 +355,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
     });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
+    });
   });
 
   test("TC9: Register with firstname causing total more than 30 chars", async ({ page }) => {
@@ -383,6 +401,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
     });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
+    });
   });
 
   test("TC10: Register with lastname causing total more than 30 chars", async ({ page }) => {
@@ -425,6 +446,9 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     });
     await test.step(expectation.step.expect4, async () => {
       await helper.expectDisplayRegisterNavLisk();
+    });
+    await test.step(expectation.step.expect5, async () => {
+      await helper.expectOnPageRegister();
     });
   });
 
