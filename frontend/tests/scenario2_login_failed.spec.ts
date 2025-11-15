@@ -77,7 +77,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -104,7 +104,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -131,7 +131,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -158,7 +158,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -185,7 +185,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -212,7 +212,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -239,7 +239,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
@@ -266,7 +266,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL} to Testing`, () => {
     await test.step(`${step.step2_fill_in_account_id}: ${data.accountId}`, async () => {
       await helper.fillAccountId(data);
     });
-    await test.step(`${step.step3_fill_in_password}: ${data.accountId}`, async () => {
+    await test.step(`${step.step3_fill_in_password}: ${data.password}`, async () => {
       await helper.fillPassword(data);
     });
     await test.step(`${step.step4_click_login_button_to_submit}`, async () => {
