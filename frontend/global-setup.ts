@@ -13,7 +13,7 @@ async function globalSetup(config: FullConfig) {
     lastName: process.env.TEST_LAST_NAME!,
     password: process.env.TEST_PASSWORD!,
     accountId: process.env.TEST_ACCOUNT_ID!,
-    balance: 10000,
+    balance: 0,
   };
 
   await connectDatabase();
