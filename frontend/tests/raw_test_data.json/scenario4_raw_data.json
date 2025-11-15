@@ -18,7 +18,7 @@
       "expectation": {
         "step": {
           "expect1": "Display error message Enter a number",
-          "expect2": "Display account on nav link on the account page",
+          "expect2": "Display remains on the account page",
           "expect3": "Display balance is {{total}} baht ({{oldBalance}} + {{newBalance}})",
           "expect4": "Display transaction history shows: 'deposit' with amount 1500"
         }
@@ -36,7 +36,7 @@
       "expectation": {
         "step": {
           "expect1": "Display error message balance is not enough",
-          "expect2": "Display account on nav link on the account page"
+          "expect2": "Display remains on the account page"
         },
         "errorMsg": {
           "balance_is_not_enough": "Your balance is not enough to complete the withdrawal."

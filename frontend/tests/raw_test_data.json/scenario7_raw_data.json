@@ -15,7 +15,7 @@
         "step": {
           "expect1": "Display the balance is {{total}} baht ({{balance}} - {{bill}})",
           "expect2": "Transaction history shows: 'billpayment' with target: water and amount {{amount}} bath",
-          "expect3": "Display account on nav link on the account page"
+          "expect3": "Display remains on the account page"
         }
       }
     },
@@ -34,7 +34,7 @@
         "step": {
           "expect1": "Display the balance is {{total}} baht ({{balance}} - {{bill}})",
           "expect2": "Transaction history shows: 'billpayment' with target: electric and amount {{amount}} bath",
-          "expect3": "Display account on nav link on the account page"
+          "expect3": "Display remains on the account page"
         }
       }
     },
@@ -53,7 +53,7 @@
         "step": {
           "expect1": "Display the balance is {{total}} baht ({{balance}} - {{bill}})",
           "expect2": "Transaction history shows: 'billpayment' with target: phone and amount {{amount}} bath",
-          "expect3": "Display account on nav link on the account page"
+          "expect3": "Display remains on the account page"
         }
       }
     }

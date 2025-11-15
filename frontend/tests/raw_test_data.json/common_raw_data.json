@@ -16,7 +16,7 @@
       "expectation": {
         "step": {
           "expect1": "Display the account page",
-          "expect2": "Display account on nav link on the account page"
+          "expect2": "Display remains on the account page"
         }
       }
     }

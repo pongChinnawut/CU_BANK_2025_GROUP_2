@@ -21,7 +21,7 @@
         "step": {
           "expect1": "Display the remains balance is {{balance}} baht",
           "expect2": "Display transaction history shows: 'transfer to' with target: {{target}} and amount {{amount}} for source",
-          "expect3": "Display account on nav link on the account page"
+          "expect3": "Display remains on the account page"
         }
       }
     }

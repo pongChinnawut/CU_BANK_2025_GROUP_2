@@ -12,7 +12,7 @@
       "expectation": {
         "step": {
           "expect1": "Display error message Enter a number",
-          "expect2": "Display account on nav link on the account page"
+          "expect2": "Display remains on the account page"
         },
         "errorMsg": {
           "enter_a_number": "Enter a number"
@@ -31,7 +31,7 @@
       "expectation": {
         "step": {
           "expect1": "Display error message tooltip Enter a valid value",
-          "expect2": "Display account on nav link on the account page",
+          "expect2": "Display remains on the account page",
           "expect3": "Display balance amount"
         },
         "errorMsg": {
@@ -51,7 +51,7 @@
       "expectation": {
         "step": {
           "expect1": "Display error message Enter a valid value",
-          "expect2": "Display account on nav link on the account page",
+          "expect2": "Display remains on the account page",
           "expect3": "Display balance amount"
         },
         "errorMsg": {

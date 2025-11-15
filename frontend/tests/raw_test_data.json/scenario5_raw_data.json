@@ -15,7 +15,7 @@
         "step": {
           "expect1": "Display error message account ID should contain numbers only.",
           "expect2": "Display the same balance",
-          "expect3": "Display account on nav link on the account page",
+          "expect3": "Display remains on the account page",
           "expect4": "Display no new balance on the account page"
         },
         "errorMsg": {
@@ -35,7 +35,7 @@
       "expectation": {
         "step": {
           "expect1": "Display error message balance is not enough",
-          "expect2": "Display account on nav link on the account page",
+          "expect2": "Display remains on the account page",
           "expect3": "Display balance is {{total}} baht ({{oldBalance}} + {{newBalance}})",
           "expect4": "Display transaction history shows: 'withdraw' with amount {{amount}}"
         }
@@ -56,7 +56,7 @@
         "step": {
           "expect1": "Display error message account ID must be exactly 10 digits long",
           "expect2": "Display the same balance",
-          "expect3": "Display account on nav link on the account page",
+          "expect3": "Display remains on the account page",
           "expect4": "Display no new balance on the account page"
         },
         "errorMsg": {
@@ -79,7 +79,7 @@
         "step": {
           "expect1": "Display error message account ID must be exactly 10 digits long",
           "expect2": "Display the same balance",
-          "expect3": "Display account on nav link on the account page",
+          "expect3": "Display remains on the account page",
           "expect4": "Display no new balance on the account page"
         },
         "errorMsg": {
@@ -102,7 +102,7 @@
         "step": {
           "expect1": "Display error message We couldn't find the recipient's account. Please double-check the account ID.",
           "expect2": "Display the same balance",
-          "expect3": "Display account on nav link on the account page",
+          "expect3": "Display remains on the account page",
           "expect4": "Display no new balance on the account page"
         },
         "errorMsg": {
@@ -125,7 +125,7 @@
         "step": {
           "expect1": "Display error message You cannot transfer to your own account",
           "expect2": "Display the same balance",
-          "expect3": "Display account on nav link on the account page",
+          "expect3": "Display remains on the account page",
           "expect4": "Display no new balance on the account page"
         },
         "errorMsg": {
