@@ -21,7 +21,7 @@
           "expect1": "Display error message account ID should contain numbers only",
           "expect2": "Display register button on the register page",
           "expect3": "Display login on nav link on the register page",
-          "expect4": "Display register on nav link on the register page"
+          "expect4": "User still on the register page"
         },
         "errorMsg": {
           "accountIdShouldContainNumbersOnly": "Your account ID should contain numbers only."
