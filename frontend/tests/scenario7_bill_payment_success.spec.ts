@@ -63,7 +63,7 @@ test.describe(`Navigate to the ${defineConfig.use?.baseURL}/account to Testing`,
         await helper.expectBalanceChange(total);
       }
     );
-    await test.step(expectation.step.expect2, async () => {
+    await test.step(getText(expectation.step.expect2, { amount: data.amount }), async () => {
       await helper.expectDisplayTransactions();
     });
     await test.step(expectation.step.expect3, async () => {
